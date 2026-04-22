@@ -29,7 +29,7 @@
   --border2:rgba(245,242,236,0.08);
 }
 html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;line-height:1.7}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;line-height:1.8;font-size:17px}
 body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000}
 
 /* NAV */
@@ -38,7 +38,7 @@ nav.scrolled{background:rgba(10,15,13,0.97);border-bottom-color:rgba(201,168,76,
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:2px;color:var(--white);text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
 .nav-logo span{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
 .nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{font-size:15px;color:var(--muted);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a{font-size:16px;color:var(--muted);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s}
 .nav-links a:hover{color:var(--white)}
 .nav-cta{background:var(--gold);color:var(--dark);border:none;border-radius:4px;padding:12px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;transition:all 0.2s;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,76,0.25);white-space:nowrap}
 .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 32px rgba(201,168,76,0.35)}
@@ -78,7 +78,7 @@ section{padding:100px 40px}
 .section-label{font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,58px);font-weight:300;line-height:1.1;margin-bottom:20px}
 .section-title em{font-style:italic;color:var(--gold)}
-.section-desc{font-size:17px;color:var(--muted);max-width:600px;line-height:1.7}
+.section-desc{font-size:19px;color:var(--muted);max-width:640px;line-height:1.8}
 
 /* HOW IT WORKS */
 #how{background:linear-gradient(to bottom,var(--dark),var(--dark2))}
@@ -86,8 +86,8 @@ section{padding:100px 40px}
 .steps::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:1px;background:linear-gradient(to right,transparent,var(--border),var(--border),transparent);pointer-events:none}
 .step{text-align:center;padding:0 20px;position:relative}
 .step-num{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold);background:var(--dark);position:relative;z-index:1}
-.step-title{font-size:16px;font-weight:600;letter-spacing:0.5px;margin-bottom:10px}
-.step-desc{font-size:15px;color:var(--muted);line-height:1.6}
+.step-title{font-size:18px;font-weight:600;letter-spacing:0.3px;margin-bottom:12px}
+.step-desc{font-size:16px;color:var(--muted);line-height:1.7}
 
 /* FEATURES */
 #features{background:var(--dark2)}
@@ -97,8 +97,8 @@ section{padding:100px 40px}
 .feature-card:hover{background:rgba(245,242,236,0.04)}
 .feature-card:hover::before{opacity:1}
 .feature-icon{width:48px;height:48px;margin-bottom:24px;opacity:0.7}
-.feature-title{font-size:19px;font-weight:500;margin-bottom:12px;letter-spacing:0.2px}
-.feature-desc{font-size:15px;color:var(--muted);line-height:1.7}
+.feature-title{font-size:21px;font-weight:500;margin-bottom:14px;letter-spacing:0.2px}
+.feature-desc{font-size:16px;color:var(--muted);line-height:1.8}
 .feature-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 .feature-tag{font-size:12px;font-weight:500;letter-spacing:0.5px;color:var(--gold);background:var(--gold-dim);border:1px solid rgba(201,168,76,0.2);border-radius:3px;padding:4px 10px}
 
@@ -121,6 +121,59 @@ section{padding:100px 40px}
 .lang-item strong{color:var(--white)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+
+/* PHILOSOPHY */
+#philosophy{background:linear-gradient(to bottom,var(--dark2),var(--dark))}
+.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.phil-card{background:rgba(245,242,236,0.02);border:1px solid var(--border2);padding:44px 36px;position:relative;overflow:hidden;transition:all 0.3s}
+.phil-card:hover{background:rgba(245,242,236,0.04)}
+.phil-num{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;color:var(--gold);opacity:0.3;line-height:1;margin-bottom:16px}
+.phil-title{font-size:19px;font-weight:600;margin-bottom:12px;letter-spacing:0.2px}
+.phil-desc{font-size:16px;color:var(--muted);line-height:1.8}
+
+/* WHAT YOU SAVE */
+#saves{background:var(--dark2)}
+.saves-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:56px}
+.save-card{background:rgba(245,242,236,0.02);border:1px solid var(--border2);padding:44px 40px;transition:all 0.3s}
+.save-card:hover{background:rgba(245,242,236,0.04)}
+.save-icon{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.save-title{font-size:21px;font-weight:500;margin-bottom:12px}
+.save-desc{font-size:16px;color:var(--muted);line-height:1.8}
+
+/* WHAT EVERY HOTEL GETS */
+#included{background:var(--dark)}
+.included-list{margin-top:48px;display:flex;flex-direction:column;gap:0}
+.included-row{display:grid;grid-template-columns:20px 1fr 260px;gap:20px;align-items:start;padding:20px 0;border-bottom:1px solid var(--border2)}
+.included-row:last-child{border-bottom:none}
+.included-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px}
+.included-name{font-size:18px;font-weight:500;margin-bottom:4px}
+.included-desc{font-size:15px;color:var(--muted);line-height:1.7}
+.included-value{font-size:15px;color:var(--gold);line-height:1.6;text-align:right}
+.no-charge{margin-top:40px;padding:24px 32px;border:1px solid var(--border2);border-radius:4px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.no-charge-label{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-right:8px}
+.no-charge-tag{font-size:15px;padding:8px 18px;border-radius:100px;border:1px solid var(--border2);color:var(--muted)}
+
+/* PARTNERSHIP (replaces pricing) */
+#partnership{background:var(--dark)}
+.partnership-intro{font-size:19px;color:var(--muted);max-width:640px;margin:0 auto 56px;text-align:center;line-height:1.8}
+.partnership-table{border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:0}
+.pt-header{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;background:rgba(28,61,46,0.2)}
+.pt-hcell{padding:16px 20px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.pt-hcell:not(:first-child){border-left:1px solid var(--border2);color:var(--gold)}
+.pt-hcell:first-child{color:var(--muted)}
+.pt-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;border-top:1px solid var(--border2)}
+.pt-row:hover{background:rgba(245,242,236,0.02)}
+.pt-cell{padding:14px 20px;font-size:16px}
+.pt-cell:not(:first-child){border-left:1px solid var(--border2)}
+.pt-cell:first-child{color:var(--muted);font-size:15px}
+.pt-val-ind{color:rgba(245,242,236,0.7)}
+.pt-val-man{color:var(--gold)}
+.pt-val-str{color:#5a9e72}
+.pt-note{font-size:12px;color:var(--muted2);margin-top:3px}
+.pt-row-highlight{background:rgba(201,168,76,0.04)}
+.partner-cta-note{text-align:center;margin-top:32px;font-size:16px;color:var(--muted);line-height:1.8}
+.partner-cta-note em{font-style:italic;color:var(--gold)}
+
 /* PRICING */
 #pricing{background:var(--dark)}
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
@@ -134,7 +187,7 @@ section{padding:100px 40px}
 .price-hotel{font-size:13px;color:var(--gold);margin-bottom:28px;font-weight:500;background:var(--gold-dim);display:inline-block;padding:4px 12px;border-radius:2px}
 .price-divider{height:1px;background:var(--border2);margin-bottom:28px}
 .price-features{list-style:none;display:flex;flex-direction:column;gap:10px;flex:1}
-.price-features li{font-size:15px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.price-features li{font-size:16px;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
 .price-features li.on{color:var(--white)}
 .price-features li::before{content:'–';color:var(--muted2);flex-shrink:0;font-size:15px;margin-top:1px}
 .price-features li.on::before{content:'✓';color:var(--gold)}
@@ -192,6 +245,11 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   .features-grid{grid-template-columns:1fr}
   .journey-grid{grid-template-columns:1fr}
   .pricing-grid{grid-template-columns:1fr;gap:16px}
+  .philosophy-grid{grid-template-columns:1fr}
+  .saves-grid{grid-template-columns:1fr}
+  .pt-header,.pt-row{grid-template-columns:1fr}
+  .included-row{grid-template-columns:20px 1fr}
+  .included-value{display:none}
   .price-card.featured{margin:0}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;text-align:center}
@@ -254,8 +312,9 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   </a>
   <div class="nav-links">
     <a href="#how">How It Works</a>
+    <a href="#philosophy">Our Philosophy</a>
     <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#partnership">Partnership</a>
     <a href="#contact">Contact</a>
   </div>
   <a href="#contact" class="nav-cta">Request a Demo</a>
@@ -265,8 +324,9 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#how" onclick="toggleMenu()">How It Works</a>
+  <a href="#philosophy" onclick="toggleMenu()">Our Philosophy</a>
   <a href="#features" onclick="toggleMenu()">Features</a>
-  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
+  <a href="#partnership" onclick="toggleMenu()">Partnership</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
   <a href="#contact" class="mobile-cta" onclick="toggleMenu()">Request a Demo</a>
 </div>
@@ -296,7 +356,7 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
       </div>
       <div>
         <div class="hero-stat-num"><span id="c3">0</span>%</div>
-        <div class="hero-stat-label">Commission retained</div>
+        <div class="hero-stat-label">Commission yours</div>
       </div>
       <div>
         <div class="hero-stat-num"><span id="c4">0</span>/7</div>
@@ -348,22 +408,93 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
       <div class="step reveal">
         <div class="step-num">1</div>
         <div class="step-title">Guest Messages</div>
-        <div class="step-desc">Guest texts your hotel's WhatsApp number. Any language, any time of day or night.</div>
+        <div class="step-desc">Your guest texts the hotel WhatsApp number — any language, any hour. No app download, no registration. Just a message.</div>
       </div>
       <div class="step reveal reveal-2">
         <div class="step-num">2</div>
         <div class="step-title">AI Understands</div>
-        <div class="step-desc">Our AI instantly reads intent — booking request, room service, local recommendation, complaint — and crafts a perfect reply.</div>
+        <div class="step-desc">The concierge reads intent instantly — booking request, room service, local recommendation, complaint — and crafts a perfect, personal reply.</div>
       </div>
       <div class="step reveal reveal-3">
         <div class="step-num">3</div>
         <div class="step-title">Partners Alerted</div>
-        <div class="step-desc">Taxi, restaurant, spa — the right partner gets a WhatsApp alert and confirms in one tap: ✅ ❌.</div>
+        <div class="step-desc">The right partner — taxi, restaurant, spa — gets a WhatsApp alert automatically and confirms in one tap. No calls, no coordination.</div>
       </div>
       <div class="step reveal reveal-4">
         <div class="step-num">4</div>
         <div class="step-title">Hotel Earns</div>
-        <div class="step-desc">Every confirmed booking earns your hotel a commission, tracked automatically and settled monthly.</div>
+        <div class="step-desc">Every confirmed booking earns your hotel a commission, tracked automatically and reconciled monthly. Your team gets the credit. The platform handles the work.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Our Philosophy</div>
+      <h2 class="section-title">The platform that pays<br>for <em>itself.</em></h2>
+      <p class="section-desc" style="margin:0 auto 16px">Designed to handle repetitive guest requests, so your team can focus on high-touch, human experiences. Your team becomes more present, more attentive, and more available — not less involved. Guests feel more looked after. Your team looks more premium.</p>
+      <p class="section-desc" style="margin:0 auto 0">We built The Residence Concierge to handle the repetitive so your team can own the exceptional — while generating commissions, capturing direct bookings, and earning your hotel money around the clock.</p>
+    </div>
+    <div class="philosophy-grid" style="margin-top:56px">
+      <div class="phil-card reveal">
+        <div class="phil-num">01</div>
+        <div class="phil-title">Full platform from day one</div>
+        <div class="phil-desc">Every feature, every language, every automation. No feature gating, no tiers, no surprises. What you see is what you get — and you get all of it.</div>
+      </div>
+      <div class="phil-card reveal reveal-2">
+        <div class="phil-num">02</div>
+        <div class="phil-title">Fixed base. Variable only on value</div>
+        <div class="phil-desc">Your monthly fee never changes. Variable costs only appear when the platform is actively delivering value — bookings made, revenue generated.</div>
+      </div>
+      <div class="phil-card reveal reveal-3">
+        <div class="phil-num">03</div>
+        <div class="phil-title">We only earn when you earn</div>
+        <div class="phil-desc">Revenue shares activate from year 2 only — after 12 months of proven results. Year 1 is always free. You see the value before you share it.</div>
+      </div>
+    </div>
+    <div class="no-charge reveal" style="margin-top:40px;flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start">
+      <span class="no-charge-label" style="white-space:nowrap">We will never charge for</span>
+      <span class="no-charge-tag">Number of rooms</span>
+      <span class="no-charge-tag">Message volume</span>
+      <span class="no-charge-tag">Staff logins</span>
+      <span class="no-charge-tag">High season traffic</span>
+      <span class="no-charge-tag">Feature upgrades</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU SAVE -->
+<section id="saves">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">What you save — every single day</div>
+      <h2 class="section-title">The hours your team gets back.<br><em>The friction that disappears.</em></h2>
+      <p class="section-desc">The platform doesn't just generate revenue — it removes the daily admin and coordination friction your team absorbs without thinking about it. What remains is the work worth doing: real guest relationships, personal service, the moments that drive loyalty and reviews.</p>
+    </div>
+    <div class="saves-grid">
+      <div class="save-card reveal">
+        <div class="save-icon">Guest communication</div>
+        <div class="save-title">At 2am a guest needs a towel. Done.</div>
+        <div class="save-desc">The platform handles it, routes it to housekeeping, and your guest gets a reply in seconds. Check-in time, pool hours, late checkout, restaurant recommendations — answered instantly, 24/7, in the guest's language. Your team focuses on the guests in front of them. More attentive, more present, more premium.</div>
+      </div>
+      <div class="save-card reveal reveal-2">
+        <div class="save-icon">Smart routing</div>
+        <div class="save-title">Every request reaches the right person automatically</div>
+        <div class="save-desc">Maintenance request → maintenance team. Housekeeping → housekeeping. Restaurant booking → concierge. Complaint → supervisor immediately. Late night query → morning follow-up, no one woken up. No calls, no WhatsApp groups, no missed messages.</div>
+      </div>
+      <div class="save-card reveal">
+        <div class="save-icon">Partner coordination</div>
+        <div class="save-title">Partner bookings handled without the back-and-forth</div>
+        <div class="save-desc">Every booking request goes to the right partner automatically. Partners confirm in one tap — no calls, no coordination required from your team, no dropped bookings.</div>
+      </div>
+      <div class="save-card reveal reveal-2">
+        <div class="save-icon">Admin and tools</div>
+        <div class="save-title">One platform, everything connected</div>
+        <div class="save-desc">Guest messaging, journey automation, NPS, review generation, partner management and commission reconciliation — all in one place. No switching, no duplication, no manual tracking.</div>
       </div>
     </div>
   </div>
@@ -373,44 +504,65 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
 <section id="features">
   <div class="container">
     <div class="reveal">
-      <div class="section-label">Platform Features</div>
-      <h2 class="section-title">Everything your hotel needs.<br><em>Nothing it doesn't.</em></h2>
+      <div class="section-label">What every hotel gets</div>
+      <h2 class="section-title">The full platform —<br><em>customised to your needs.</em></h2>
+      <p class="section-desc">No limits on rooms, staff logins, partners, message volume or languages. Every hotel on every level gets the same powerful platform from day one.</p>
     </div>
-    <div class="features-grid">
-      <div class="feature-card reveal">
-        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="20" stroke="#C9A84C" stroke-width="1.5"/>
-          <path d="M16 24h16M24 16v16" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">24/7 Guest Messaging</div>
-        <div class="feature-desc">Every guest query answered instantly — from pre-arrival questions to mid-stay requests and checkout. Your AI concierge never sleeps, never makes guests wait.</div>
-        <div class="feature-tags"><span class="feature-tag">WhatsApp</span><span class="feature-tag">17 Languages</span><span class="feature-tag">Instant</span></div>
+    <div class="included-list" style="margin-top:48px">
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Guest support layer, 24/7 via WhatsApp</div><div class="included-desc">Answers every guest query instantly in their language — nights, weekends, peak season — without adding workload to your team.</div></div>
+        <div class="included-value">Handles overnight queries without adding team workload</div>
       </div>
-      <div class="feature-card reveal reveal-2">
-        <svg class="feature-icon" viewBox="0 0 48 48" fill="none">
-          <rect x="8" y="12" width="32" height="24" rx="3" stroke="#C9A84C" stroke-width="1.5"/>
-          <path d="M16 20h16M16 28h10" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">Partner Booking Engine</div>
-        <div class="feature-desc">Taxi, spa, restaurant, car rental, activities — the AI books it, notifies the partner, and your hotel earns a commission on every single transaction.</div>
-        <div class="feature-tags"><span class="feature-tag">Commission Tracking</span><span class="feature-tag">Auto-alerts</span><span class="feature-tag">Monthly Reconciliation</span></div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Automatic upsell engine</div><div class="included-desc">Detects honeymoon couples, VIP arrivals, day-1 guests and offers the right service at the right moment. Your team gets the credit. The guest feels personally looked after — because they were.</div></div>
+        <div class="included-value">Generates commission revenue automatically</div>
       </div>
-      <div class="feature-card reveal">
-        <svg class="feature-icon" viewBox="0 0 48 48" fill="none">
-          <path d="M24 8l4 8h9l-7 6 3 9-9-5-9 5 3-9-7-6h9z" stroke="#C9A84C" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-        <div class="feature-title">Guest Journey Automation</div>
-        <div class="feature-desc">Automated touchpoints across the full stay cycle — pre-arrival welcome, day-1 upsell, mid-stay offer, checkout reminder, post-stay NPS, and referral code.</div>
-        <div class="feature-tags"><span class="feature-tag">Pre-arrival</span><span class="feature-tag">In-stay</span><span class="feature-tag">Post-checkout</span></div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Full guest journey automation</div><div class="included-desc">Pre-arrival welcome, airport transfer upsell, mid-stay offers, checkout reminder, review prompt, referral code — all running without manual input.</div></div>
+        <div class="included-value">Runs automatically in the background, with full team visibility</div>
       </div>
-      <div class="feature-card reveal reveal-2">
-        <svg class="feature-icon" viewBox="0 0 48 48" fill="none">
-          <circle cx="24" cy="18" r="8" stroke="#C9A84C" stroke-width="1.5"/>
-          <path d="M10 40c0-7.732 6.268-14 14-14s14 6.268 14 14" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-        <div class="feature-title">Staff Dashboard</div>
-        <div class="feature-desc">Live conversation view with AI-suggested replies, scheduling calendar, partner management, reconciliation reports — all in one clean admin interface.</div>
-        <div class="feature-tags"><span class="feature-tag">Live View</span><span class="feature-tag">Push Notifications</span><span class="feature-tag">Mobile Ready</span></div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Commission-generating partner bookings</div><div class="included-desc">Every taxi, spa, restaurant, car rental and activity booked through the platform earns your hotel a commission, tracked and reconciled monthly.</div></div>
+        <div class="included-value">New revenue from existing relationships</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Activity and event booking engine</div><div class="included-desc">Guests register for cooking classes, padel tournaments, guided tours and any hotel-run activity via WhatsApp. The AI handles confirmation, reminders and follow-up automatically.</div></div>
+        <div class="included-value">Turns hotel programming into booked revenue</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Guest memory and personalisation</div><div class="included-desc">Remembers preferences, past stays and favourite services. Returning guests feel like VIPs with zero staff effort.</div></div>
+        <div class="included-value">Drives loyalty and repeat direct bookings</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Intelligent complaint detection</div><div class="included-desc">Detects frustration and escalates before it becomes a bad review. Alerts the right person via WhatsApp immediately.</div></div>
+        <div class="included-value">Protects your TripAdvisor and Google rating</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Automated review generation</div><div class="included-desc">Post-stay prompts timed to positive guest sentiment. Drives Google and TripAdvisor reviews at scale, automatically.</div></div>
+        <div class="included-value">Measurable reputation improvement</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Referral and direct booking engine</div><div class="included-desc">Turns satisfied guests into a direct booking channel via unique tracked referral codes. Reduces OTA dependency over time.</div></div>
+        <div class="included-value">Lowers your OTA commission spend</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">Staff dashboard — web and mobile</div><div class="included-desc">Live conversations, AI-suggested replies, partner management, commission reports and performance analytics in one clean interface.</div></div>
+        <div class="included-value">Full visibility, zero admin overhead</div>
+      </div>
+      <div class="included-row reveal">
+        <div class="included-dot"></div>
+        <div><div class="included-name">GDPR compliant, EU hosted</div><div class="included-desc">Full guest opt-out controls, complete audit trail, data stays in Europe. Zero data compliance liability for your hotel.</div></div>
+        <div class="included-value">Enterprise-grade data safety</div>
       </div>
     </div>
   </div>
@@ -456,70 +608,68 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
+<!-- PARTNERSHIP -->
+<section id="partnership">
   <div class="container">
     <div class="reveal" style="text-align:center">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">Choose your plan.<br>Start earning <em>immediately.</em></h2>
-      <p class="section-desc" style="margin:0 auto">Transparent pricing. No hidden fees. Your hotel keeps 100% of the commission it earns.</p>
+      <div class="section-label">Partnership</div>
+      <h2 class="section-title">Same platform.<br><em>Different relationship.</em></h2>
+      <p class="partnership-intro">The more support you choose from us, the lower our revenue share — because we're more invested in your success. All revenue shares start from year 2. Year 1 is always free.</p>
     </div>
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="price-tier">Essentials</div>
-        <div class="price-amount"><sup>€</sup>149</div>
-        <div class="price-period">per month, per hotel</div>
-        <div class="price-hotel">Hotel earns up to €500/mo</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li class="on">24/7 WhatsApp concierge</li>
-          <li class="on">5 partner integrations</li>
-          <li class="on">3 languages</li>
-          <li class="on">Pre-arrival messaging</li>
-          <li class="on">Staff dashboard</li>
-          <li>Guest journey automation</li>
-          <li>Commission reconciliation</li>
-          <li>Custom branding</li>
-        </ul>
-        <a href="#contact" class="price-cta">Get started</a>
+
+    <div class="partnership-table reveal">
+      <div class="pt-header">
+        <div class="pt-hcell"></div>
+        <div class="pt-hcell">Independent</div>
+        <div class="pt-hcell">★ Managed</div>
+        <div class="pt-hcell" style="color:#5a9e72">Strategic</div>
       </div>
-      <div class="price-card featured reveal reveal-2">
-        <div class="price-tier">Professional</div>
-        <div class="price-amount"><sup>€</sup>299</div>
-        <div class="price-period">per month, per hotel</div>
-        <div class="price-hotel">Hotel earns up to €2,000/mo</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li class="on">24/7 WhatsApp concierge</li>
-          <li class="on">Unlimited partners</li>
-          <li class="on">17 languages</li>
-          <li class="on">Full journey automation</li>
-          <li class="on">Staff dashboard + mobile</li>
-          <li class="on">Commission reconciliation</li>
-          <li class="on">Car rental integration</li>
-          <li class="on">Custom branding</li>
-        </ul>
-        <a href="#contact" class="price-cta">Get started</a>
+
+      <div class="pt-row">
+        <div class="pt-cell">Support</div>
+        <div class="pt-cell" style="color:var(--muted)">Self-managed</div>
+        <div class="pt-cell" style="color:var(--muted)">We optimise for you</div>
+        <div class="pt-cell" style="color:var(--muted)">Full partnership</div>
       </div>
-      <div class="price-card reveal reveal-3">
-        <div class="price-tier">Enterprise</div>
-        <div class="price-amount" style="font-size:36px;padding-top:6px">Custom</div>
-        <div class="price-period">multi-property pricing</div>
-        <div class="price-hotel">Unlimited earning potential</div>
-        <div class="price-divider"></div>
-        <ul class="price-features">
-          <li class="on">Everything in Professional</li>
-          <li class="on">Multi-property dashboard</li>
-          <li class="on">Dedicated account manager</li>
-          <li class="on">SLA support</li>
-          <li class="on">PMS integration (roadmap)</li>
-          <li class="on">Custom AI training</li>
-          <li class="on">White-label option</li>
-          <li class="on">Priority feature requests</li>
-        </ul>
-        <a href="#contact" class="price-cta">Contact us</a>
+      <div class="pt-row">
+        <div class="pt-cell">External bookings (yr 2)<br><span class="pt-note">Partners — restaurants, taxis, experiences</span></div>
+        <div class="pt-cell pt-val-ind">5%</div>
+        <div class="pt-cell pt-val-man">3%</div>
+        <div class="pt-cell pt-val-str">1.5% · capped</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-cell">Internal bookings (yr 2)<br><span class="pt-note">Hotel — spa, dining, upgrades, activities</span></div>
+        <div class="pt-cell pt-val-ind">3%</div>
+        <div class="pt-cell pt-val-man">2%</div>
+        <div class="pt-cell pt-val-str">1% · capped</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-cell">Partner income (€100/yr)<br><span class="pt-note">per partner · from year 2</span></div>
+        <div class="pt-cell" style="color:var(--muted)">0% to hotel</div>
+        <div class="pt-cell pt-val-man">50 / 50</div>
+        <div class="pt-cell pt-val-str">100% to hotel</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-cell">Expert sessions</div>
+        <div class="pt-cell" style="color:var(--muted)">On request</div>
+        <div class="pt-cell" style="color:var(--muted)">On request</div>
+        <div class="pt-cell pt-val-str">✓ Included</div>
+      </div>
+      <div class="pt-row">
+        <div class="pt-cell">Multi-property</div>
+        <div class="pt-cell" style="color:var(--muted2)">—</div>
+        <div class="pt-cell" style="color:var(--muted2)">—</div>
+        <div class="pt-cell pt-val-str">✓ Included</div>
+      </div>
+      <div class="pt-row pt-row-highlight">
+        <div class="pt-cell" style="color:var(--gold)">Setup &amp; success fee (yr 2)</div>
+        <div class="pt-cell" style="color:var(--muted)">€600<br><span class="pt-note">or €50/mo spread</span></div>
+        <div class="pt-cell" style="color:var(--muted)">€1,000<br><span class="pt-note">or €91/mo spread</span></div>
+        <div class="pt-cell" style="color:var(--muted)">€1,400<br><span class="pt-note">or €125/mo spread</span></div>
       </div>
     </div>
+
+    <p class="partner-cta-note reveal">Pricing discussed during your demo. <a href="#contact" style="color:var(--gold);text-decoration:none">Request a call →</a></p>
   </div>
 </section>
 
@@ -528,7 +678,7 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   <div class="container" style="position:relative;z-index:1;text-align:center">
     <div class="section-label reveal">Get Started</div>
     <h2 class="cta-title reveal">Your guests deserve<br>a <em>better</em> concierge</h2>
-    <p class="cta-sub reveal">Setup takes 48 hours. No long contracts. Cancel anytime. Join hotels already earning commission from every guest interaction.</p>
+    <p class="cta-sub reveal">Setup takes 48 hours. No long contracts. Cancel anytime.<br>You see the value before you share it.<br>Your team stays at the centre. The platform handles the noise.</p>
     <div class="cta-form reveal">
       <input type="email" class="cta-input" placeholder="Your hotel email address" id="emailInput">
       <button class="btn-primary" onclick="handleDemo()">Request Demo</button>
@@ -553,7 +703,7 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
         <li><a href="#how">How It Works</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#journey">Guest Journey</a></li>
-        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#partnership">Partnership</a></li>
       </ul>
     </div>
     <div>
@@ -579,7 +729,7 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
     <div class="footer-legal">
       <a href="/privacy-policy.html">Privacy Policy</a>
       <a href="/terms.html">Terms of Service</a>
-      <a href="mailto:hello@theresidenceconcierge.com">Contact</a>
+      <a href="mailto:ferran.diaz92@gmail.com">Contact</a>
     </div>
   </div>
 </footer>
