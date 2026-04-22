@@ -146,9 +146,9 @@ section{padding:100px 40px}
 .included-row{display:grid;grid-template-columns:20px 1fr 260px;gap:20px;align-items:start;padding:20px 0;border-bottom:1px solid var(--border2)}
 .included-row:last-child{border-bottom:none}
 .included-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:8px}
-.included-name{font-size:18px;font-weight:500;margin-bottom:4px}
-.included-desc{font-size:15px;color:var(--muted);line-height:1.7}
-.included-value{font-size:15px;color:var(--gold);line-height:1.6;text-align:right}
+.included-name{font-size:19px;font-weight:500;margin-bottom:6px}
+.included-desc{font-size:16px;color:var(--muted);line-height:1.8}
+.included-value{font-size:16px;color:var(--gold);line-height:1.6;text-align:right}
 .no-charge{margin-top:40px;padding:24px 32px;border:1px solid var(--border2);border-radius:4px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .no-charge-label{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-right:8px}
 .no-charge-tag{font-size:15px;padding:8px 18px;border-radius:100px;border:1px solid var(--border2);color:var(--muted)}
@@ -158,19 +158,20 @@ section{padding:100px 40px}
 .partnership-intro{font-size:19px;color:var(--muted);max-width:640px;margin:0 auto 56px;text-align:center;line-height:1.8}
 .partnership-table{border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-top:0}
 .pt-header{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;background:rgba(28,61,46,0.2)}
-.pt-hcell{padding:16px 20px;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.pt-hcell{padding:16px 22px;font-size:14px;font-weight:600;letter-spacing:3px;text-transform:uppercase}
 .pt-hcell:not(:first-child){border-left:1px solid var(--border2);color:var(--gold)}
 .pt-hcell:first-child{color:var(--muted)}
 .pt-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;border-top:1px solid var(--border2)}
 .pt-row:hover{background:rgba(245,242,236,0.02)}
-.pt-cell{padding:14px 20px;font-size:16px}
+.pt-cell{padding:16px 22px;font-size:17px}
 .pt-cell:not(:first-child){border-left:1px solid var(--border2)}
-.pt-cell:first-child{color:var(--muted);font-size:15px}
+.pt-cell:first-child{color:var(--muted);font-size:16px}
 .pt-val-ind{color:rgba(245,242,236,0.7)}
 .pt-val-man{color:var(--gold)}
 .pt-val-str{color:#5a9e72}
-.pt-note{font-size:12px;color:var(--muted2);margin-top:3px}
+.pt-note{font-size:13px;color:var(--muted2);margin-top:3px}
 .pt-row-highlight{background:rgba(201,168,76,0.04)}
+.pt-mobile-cols{display:none}
 .partner-cta-note{text-align:center;margin-top:32px;font-size:16px;color:var(--muted);line-height:1.8}
 .partner-cta-note em{font-style:italic;color:var(--gold)}
 
@@ -247,7 +248,6 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   .pricing-grid{grid-template-columns:1fr;gap:16px}
   .philosophy-grid{grid-template-columns:1fr}
   .saves-grid{grid-template-columns:1fr}
-  .pt-header,.pt-row{grid-template-columns:1fr}
   .included-row{grid-template-columns:20px 1fr}
   .included-value{display:none}
   .price-card.featured{margin:0}
@@ -273,6 +273,24 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   .footer-links a{font-size:14px}
   /* Nav CTA on mobile */
   .nav-cta{padding:9px 16px;font-size:13px}
+}
+
+
+/* Mobile partnership table — stacked tier cards */
+@media(max-width:900px){
+  .partnership-table{border:none;border-radius:0}
+  .pt-header{display:none}
+  .pt-row{display:block;border-top:1px solid var(--border2);padding:0}
+  .pt-row:first-child{border-top:none}
+  .pt-cell{display:none}
+  .pt-cell:first-child{display:block;padding:16px 20px 10px;font-size:14px;font-weight:600;letter-spacing:1px;color:var(--white);border-left:none}
+  .pt-cell:first-child .pt-note{font-size:12px;color:var(--muted);font-weight:400;letter-spacing:0}
+  .pt-mobile-cols{display:grid !important;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--border2)}
+  .pt-mobile-col{padding:12px 14px;border-right:1px solid var(--border2)}
+  .pt-mobile-col:last-child{border-right:none}
+  .pt-mobile-tier{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
+  .pt-mobile-val{font-size:15px;line-height:1.5}
+  .pt-row-highlight{background:rgba(201,168,76,0.06)}
 }
 
 /* ── FLOATING WHATSAPP BUTTON ── */
@@ -630,42 +648,77 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
         <div class="pt-cell" style="color:var(--muted)">Self-managed</div>
         <div class="pt-cell" style="color:var(--muted)">We optimise for you</div>
         <div class="pt-cell" style="color:var(--muted)">Full partnership</div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:var(--muted)">Self-managed</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--muted)">We optimise for you</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:var(--muted)">Full partnership</div></div>
+        </div>
       </div>
       <div class="pt-row">
         <div class="pt-cell">External bookings (yr 2)<br><span class="pt-note">Partners — restaurants, taxis, experiences</span></div>
         <div class="pt-cell pt-val-ind">5%</div>
         <div class="pt-cell pt-val-man">3%</div>
         <div class="pt-cell pt-val-str">1.5% · capped</div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:rgba(245,242,236,0.7)">5%</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--gold)">3%</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:#5a9e72">1.5% · capped</div></div>
+        </div>
       </div>
       <div class="pt-row">
         <div class="pt-cell">Internal bookings (yr 2)<br><span class="pt-note">Hotel — spa, dining, upgrades, activities</span></div>
         <div class="pt-cell pt-val-ind">3%</div>
         <div class="pt-cell pt-val-man">2%</div>
         <div class="pt-cell pt-val-str">1% · capped</div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:rgba(245,242,236,0.7)">3%</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--gold)">2%</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:#5a9e72">1% · capped</div></div>
+        </div>
       </div>
       <div class="pt-row">
         <div class="pt-cell">Partner income (€100/yr)<br><span class="pt-note">per partner · from year 2</span></div>
         <div class="pt-cell" style="color:var(--muted)">0% to hotel</div>
         <div class="pt-cell pt-val-man">50 / 50</div>
         <div class="pt-cell pt-val-str">100% to hotel</div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:var(--muted)">0% to hotel</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--gold)">50 / 50</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:#5a9e72">100% to hotel</div></div>
+        </div>
       </div>
       <div class="pt-row">
         <div class="pt-cell">Expert sessions</div>
         <div class="pt-cell" style="color:var(--muted)">On request</div>
         <div class="pt-cell" style="color:var(--muted)">On request</div>
         <div class="pt-cell pt-val-str">✓ Included</div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:var(--muted)">On request</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--muted)">On request</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:#5a9e72">✓ Included</div></div>
+        </div>
       </div>
       <div class="pt-row">
         <div class="pt-cell">Multi-property</div>
         <div class="pt-cell" style="color:var(--muted2)">—</div>
         <div class="pt-cell" style="color:var(--muted2)">—</div>
         <div class="pt-cell pt-val-str">✓ Included</div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:var(--muted2)">—</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--muted2)">—</div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:#5a9e72">✓ Included</div></div>
+        </div>
       </div>
       <div class="pt-row pt-row-highlight">
         <div class="pt-cell" style="color:var(--gold)">Setup &amp; success fee (yr 2)</div>
         <div class="pt-cell" style="color:var(--muted)">€600<br><span class="pt-note">or €50/mo spread</span></div>
         <div class="pt-cell" style="color:var(--muted)">€1,000<br><span class="pt-note">or €91/mo spread</span></div>
         <div class="pt-cell" style="color:var(--muted)">€1,400<br><span class="pt-note">or €125/mo spread</span></div>
+        <div class="pt-mobile-cols">
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:rgba(245,242,236,0.5)">Independent</div><div class="pt-mobile-val" style="color:var(--muted)">€600<br><span style="font-size:12px">or €50/mo</span></div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:var(--gold)">★ Managed</div><div class="pt-mobile-val" style="color:var(--muted)">€1,000<br><span style="font-size:12px">or €91/mo</span></div></div>
+          <div class="pt-mobile-col"><div class="pt-mobile-tier" style="color:#5a9e72">Strategic</div><div class="pt-mobile-val" style="color:var(--muted)">€1,400<br><span style="font-size:12px">or €125/mo</span></div></div>
+        </div>
       </div>
     </div>
 
