@@ -368,7 +368,7 @@ body        { font-size: 19px !important; }
   <a href="#features" onclick="toggleMenu()">Features</a>
   <a href="#partnership" onclick="toggleMenu()">Partnership</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
-  <a href="#contact" class="mobile-cta" onclick="toggleMenu()">Request a Demo</a>
+  <a href="#contact" class="mobile-cta" onclick="toggleMenu();openDemoModal();return false;">Request a Demo</a>
 </div>
 
 <!-- HERO -->
@@ -382,7 +382,7 @@ body        { font-size: 19px !important; }
     <h1 class="hero-title">The <em>Intelligent</em><br>Hotel Concierge</h1>
     <p class="hero-sub">Your guests, always attended to. 24/7 AI-powered WhatsApp service that handles requests, earns your hotel commission, and never sleeps.</p>
     <div class="hero-btns">
-      <a href="#contact" class="btn-primary">Request a Demo</a>
+      <a href="#contact" class="btn-primary" onclick="openDemoModal();return false;">Request a Demo</a>
       <a href="#how" class="btn-secondary">See How It Works</a>
     </div>
     <div class="hero-stats">
@@ -864,195 +864,187 @@ function handleDemo(){
 </a>
 
 
+
+
 <!-- DEMO MODAL -->
-<div id="demoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px">
-  <div style="background:#1a1f1c;border:1px solid rgba(201,168,76,0.2);border-radius:16px;max-width:860px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.5)">
+<div id="demoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,15,13,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#FFFFFF;border-radius:20px;max-width:860px;width:100%;max-height:92vh;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.18);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;position:relative">
 
-    <!-- Modal header -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid rgba(255,255,255,0.07)">
-      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#f5f2ec;font-weight:300">Book your demo call</div>
-      <button onclick="closeDemoModal()" style="background:none;border:none;color:rgba(255,255,255,0.4);font-size:22px;cursor:pointer;line-height:1;padding:4px">×</button>
-    </div>
+    <!-- Close -->
+    <button onclick="closeDemoModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:24px;color:#9CA3AF;cursor:pointer;line-height:1;z-index:10">×</button>
 
-    <!-- Step indicator -->
-    <div style="display:flex;align-items:center;gap:8px;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,0.07)">
-      <div id="step1ind" style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:0.06em;color:#C9A84C">
-        <div style="width:22px;height:22px;border-radius:50%;background:#C9A84C;color:#1a1f1c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">1</div>
-        TELL US ABOUT YOU
-      </div>
-      <div style="flex:1;height:1px;background:rgba(255,255,255,0.1)"></div>
-      <div id="step2ind" style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.3)">
-        <div id="step2circle" style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">2</div>
-        PICK A TIME
+    <!-- Step bar -->
+    <div style="display:flex;align-items:center;padding:20px 32px;border-bottom:1px solid rgba(0,0,0,0.07)">
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:300;color:#1a1a18;flex:1">Book your demo call</div>
+      <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.06em">
+        <div id="si1" style="display:flex;align-items:center;gap:6px;color:#A8832A">
+          <div style="width:24px;height:24px;border-radius:50%;background:#A8832A;color:white;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">1</div>
+          ABOUT YOU
+        </div>
+        <div style="width:32px;height:1px;background:#E5E7EB"></div>
+        <div id="si2" style="display:flex;align-items:center;gap:6px;color:#9CA3AF">
+          <div id="si2c" style="width:24px;height:24px;border-radius:50%;background:#F3F4F6;color:#9CA3AF;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">2</div>
+          PICK A TIME
+        </div>
       </div>
     </div>
 
     <!-- Step 1 -->
-    <div id="demoStep1" style="padding:28px;overflow-y:auto;flex:1">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+    <div id="step1" style="padding:28px 32px;overflow-y:auto;flex:1">
+      <div style="display:grid;grid-template-columns:1fr 1.1fr;gap:32px">
 
-        <!-- Left: what to expect -->
+        <!-- Left: qualification -->
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px">What you'll see on the call</div>
-          <div style="display:flex;flex-direction:column;gap:12px">
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">💬</div>
-              <div style="font-size:13px;color:rgba(245,242,236,0.8);line-height:1.6">Live dashboard with real hotel data — guests, bookings, commissions</div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">🤖</div>
-              <div style="font-size:13px;color:rgba(245,242,236,0.8);line-height:1.6">The bot handling real guest requests — bookings, taxi, events, NPS</div>
-            </div>
-            <div style="display:flex;gap:12px;align-items:flex-start">
-              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">📋</div>
-              <div style="font-size:13px;color:rgba(245,242,236,0.8);line-height:1.6">A personalised setup plan for your hotel — go live in 48 hours</div>
-            </div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:12px">Biggest challenge? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#9CA3AF">(up to 2)</span></div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:22px">
+            <label class="dm-opt"><input type="checkbox" name="pain" value="platform"> 🤖 Current platform is outdated or expensive</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="calls"> 📞 Guests calling reception for everything</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="otas"> 💰 Paying 15–20% commission to OTAs</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="partners"> 🤝 Partners hard to manage and track</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="events"> 🎉 Events poorly promoted, low attendance</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="arrival"> 😴 Guest arrives and nobody knows anything</label>
           </div>
 
-          <div style="margin-top:24px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-radius:10px">
-            <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;margin-bottom:6px">30 minutes · Google Meet</div>
-            <div style="font-size:12px;color:rgba(245,242,236,0.5);line-height:1.6">No commitment. No long pitch. Just the platform working live for your hotel type.</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:10px">Currently using?</div>
+          <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:22px">
+            <label class="dm-opt"><input type="radio" name="tool" value="nothing"> Nothing / WhatsApp personal</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="email"> Email only</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="widget"> Chat widget on website</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="platform"> Another platform (HiJiffy, Whistle…)</label>
+          </div>
+
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:10px">Property size?</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <label class="dm-pill"><input type="radio" name="size" value="small"> Under 20</label>
+            <label class="dm-pill"><input type="radio" name="size" value="medium"> 20–50 rooms</label>
+            <label class="dm-pill"><input type="radio" name="size" value="large"> 50–150 rooms</label>
+            <label class="dm-pill"><input type="radio" name="size" value="enterprise"> 150+ / multi</label>
           </div>
         </div>
 
-        <!-- Right: qualification questions -->
+        <!-- Right: contact details -->
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">Help us prepare your demo</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:14px">Your contact details</div>
 
-          <!-- Q1: Pain points -->
-          <div style="margin-bottom:20px">
-            <div style="font-size:13px;color:rgba(245,242,236,0.7);margin-bottom:10px;line-height:1.5">What's your biggest challenge? <span style="color:rgba(255,255,255,0.3);font-size:11px">(pick up to 2)</span></div>
-            <div style="display:flex;flex-direction:column;gap:6px" id="painOptions">
-              <label class="demo-opt"><input type="checkbox" name="pain" value="platform"> 🤖 Current platform feels outdated or too expensive</label>
-              <label class="demo-opt"><input type="checkbox" name="pain" value="calls"> 📞 Guests calling reception for everything</label>
-              <label class="demo-opt"><input type="checkbox" name="pain" value="otas"> 💰 Paying 15–20% commission to OTAs</label>
-              <label class="demo-opt"><input type="checkbox" name="pain" value="partners"> 🤝 Partners hard to manage and track</label>
-              <label class="demo-opt"><input type="checkbox" name="pain" value="events"> 🎉 Events poorly promoted, low attendance</label>
-              <label class="demo-opt"><input type="checkbox" name="pain" value="arrival"> 😴 Guest arrives and nobody knows anything about them</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+            <div>
+              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">My name is *</label>
+              <input id="demoName" type="text" placeholder="Maria Georgiou" class="dm-input">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">I work for *</label>
+              <input id="demoHotel" type="text" placeholder="Four Seasons Limassol" class="dm-input">
             </div>
           </div>
 
-          <!-- Q2: Current tool -->
-          <div style="margin-bottom:20px">
-            <div style="font-size:13px;color:rgba(245,242,236,0.7);margin-bottom:10px">What are you currently using?</div>
-            <div style="display:flex;flex-direction:column;gap:6px" id="toolOptions">
-              <label class="demo-opt"><input type="radio" name="tool" value="nothing"> Nothing / WhatsApp personal number</label>
-              <label class="demo-opt"><input type="radio" name="tool" value="email"> Email only</label>
-              <label class="demo-opt"><input type="radio" name="tool" value="widget"> A chat widget on the website</label>
-              <label class="demo-opt"><input type="radio" name="tool" value="platform"> Another platform (HiJiffy, Whistle, Quicktext…)</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+            <div>
+              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">My business email *</label>
+              <input id="demoEmail" type="email" placeholder="maria@hotel.com" class="dm-input">
+            </div>
+            <div>
+              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">Call me at</label>
+              <input id="demoPhone" type="tel" placeholder="+357 99 000 000" class="dm-input">
             </div>
           </div>
 
-          <!-- Q3: Size -->
-          <div>
-            <div style="font-size:13px;color:rgba(245,242,236,0.7);margin-bottom:10px">Property size?</div>
-            <div style="display:flex;flex-wrap:wrap;gap:6px" id="sizeOptions">
-              <label class="demo-size"><input type="radio" name="size" value="small"> Under 20 rooms</label>
-              <label class="demo-size"><input type="radio" name="size" value="medium"> 20–50 rooms</label>
-              <label class="demo-size"><input type="radio" name="size" value="large"> 50–150 rooms</label>
-              <label class="demo-size"><input type="radio" name="size" value="enterprise"> 150+ / multi-property</label>
-            </div>
+          <div style="margin-bottom:10px">
+            <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">I'm located in</label>
+            <select id="demoCountry" class="dm-input" style="appearance:none">
+              <option value="">Select country</option>
+              <option>Cyprus</option><option>Greece</option><option>United Kingdom</option>
+              <option>UAE</option><option>Spain</option><option>Italy</option>
+              <option>France</option><option>Germany</option><option>Portugal</option>
+              <option>Malta</option><option>Croatia</option><option>Other</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom:20px">
+            <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">I'm contacting you because</label>
+            <textarea id="demoNote" rows="3" placeholder="Tell us what you're looking for…" class="dm-input" style="resize:vertical;line-height:1.6"></textarea>
+          </div>
+
+          <div id="demoErr" style="display:none;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:10px 14px;font-size:13px;color:#991B1B;margin-bottom:10px"></div>
+
+          <button onclick="goStep2()" style="width:100%;padding:14px;background:#1C3D2E;color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s">
+            Pick a time →
+          </button>
+          <div style="text-align:center;margin-top:10px;font-size:12px;color:#9CA3AF">
+            Or email <a href="mailto:hello@theresidenceconcierge.com" style="color:#A8832A">hello@theresidenceconcierge.com</a>
           </div>
         </div>
-      </div>
-
-      <div style="display:flex;justify-content:flex-end;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)">
-        <button onclick="goToStep2()" style="padding:13px 32px;background:#C9A84C;color:#1a1f1c;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.3px">
-          Pick a time →
-        </button>
       </div>
     </div>
 
     <!-- Step 2: Calendly -->
-    <div id="demoStep2" style="display:none;flex:1;min-height:580px;padding:0">
-      <div id="calendlyEmbed" style="height:580px"></div>
+    <div id="step2" style="display:none;flex:1">
+      <div id="calEmbed" style="min-height:630px"></div>
     </div>
 
   </div>
 </div>
 
-<!-- Modal styles -->
 <style>
-.demo-opt {
-  display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;
-  border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);
-  cursor:pointer;font-size:12px;color:rgba(245,242,236,0.7);
-  font-family:'DM Sans',sans-serif;transition:all .15s;
-}
-.demo-opt:hover { border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.05); }
-.demo-opt input[type=checkbox]:checked ~ *, .demo-opt input[type=radio]:checked ~ * { color:#f5f2ec; }
-.demo-opt:has(input:checked) { border-color:#C9A84C;background:rgba(201,168,76,0.08);color:#f5f2ec; }
-.demo-size {
-  padding:7px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);
-  background:rgba(255,255,255,0.03);cursor:pointer;font-size:12px;
-  color:rgba(245,242,236,0.6);font-family:'DM Sans',sans-serif;transition:all .15s;
-}
-.demo-size:hover { border-color:rgba(201,168,76,0.3); }
-.demo-size:has(input:checked) { border-color:#C9A84C;background:rgba(201,168,76,0.1);color:#f5f2ec; }
-.demo-opt input, .demo-size input { display:none; }
-@media(max-width:640px){
-  #demoStep1 > div:first-child { grid-template-columns:1fr !important; }
-}
+.dm-opt{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:8px;border:1px solid rgba(0,0,0,0.1);background:#FAFAF8;cursor:pointer;font-size:13px;color:#3d3d38;font-family:'DM Sans',sans-serif;transition:all .15s}
+.dm-opt:hover{border-color:rgba(28,61,46,0.35);background:#EBF2EE}
+.dm-opt:has(input:checked){border-color:#1C3D2E;background:#EBF2EE;color:#1a1a18;font-weight:600}
+.dm-opt input{display:none}
+.dm-pill{padding:7px 14px;border-radius:20px;border:1px solid rgba(0,0,0,0.1);background:#FAFAF8;cursor:pointer;font-size:12px;color:#3d3d38;font-family:'DM Sans',sans-serif;transition:all .15s}
+.dm-pill:hover{border-color:rgba(28,61,46,0.3)}
+.dm-pill:has(input:checked){border-color:#1C3D2E;background:#EBF2EE;color:#1C3D2E;font-weight:600}
+.dm-pill input{display:none}
+.dm-input{width:100%;padding:10px 12px;border:1px solid rgba(0,0,0,0.12);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;color:#1a1a18;background:#FAFAF8;outline:none;box-sizing:border-box}
+.dm-input:focus{border-color:#1C3D2E;background:white}
 </style>
 
-<!-- Modal JS -->
 <script>
-function openDemoModal() {
-  const m = document.getElementById('demoModal');
-  m.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
+function openDemoModal(){document.getElementById('demoModal').style.display='flex';document.body.style.overflow='hidden'}
+function closeDemoModal(){
+  document.getElementById('demoModal').style.display='none';
+  document.body.style.overflow='';
+  document.getElementById('step1').style.display='block';
+  document.getElementById('step2').style.display='none';
+  document.getElementById('si2').style.color='#9CA3AF';
+  document.getElementById('si2c').style.background='#F3F4F6';
+  document.getElementById('si2c').style.color='#9CA3AF';
+  document.getElementById('calEmbed').innerHTML='';
 }
-function closeDemoModal() {
-  document.getElementById('demoModal').style.display = 'none';
-  document.body.style.overflow = '';
-  // Reset to step 1
-  document.getElementById('demoStep1').style.display = 'block';
-  document.getElementById('demoStep2').style.display = 'none';
-  document.getElementById('step2ind').style.color = 'rgba(255,255,255,0.3)';
-  document.getElementById('step2circle').style.background = 'rgba(255,255,255,0.1)';
-  document.getElementById('step2circle').style.color = 'rgba(255,255,255,0.4)';
-}
-function goToStep2() {
-  // Collect answers
-  const pains = [...document.querySelectorAll('input[name=pain]:checked')].map(i=>i.value);
-  const tool  = document.querySelector('input[name=tool]:checked')?.value || '';
-  const size  = document.querySelector('input[name=size]:checked')?.value || '';
-  const notes = `Challenges: ${pains.join(', ')||'not specified'} | Currently using: ${tool||'not specified'} | Size: ${size||'not specified'}`;
-
-  // Show step 2
-  document.getElementById('demoStep1').style.display = 'none';
-  document.getElementById('demoStep2').style.display = 'block';
-  document.getElementById('step2ind').style.color = '#C9A84C';
-  document.getElementById('step2circle').style.background = '#C9A84C';
-  document.getElementById('step2circle').style.color = '#1a1f1c';
-
-  // Load Calendly
-  const el = document.getElementById('calendlyEmbed');
-  el.innerHTML = '';
-  if (window.Calendly) {
+function goStep2(){
+  const name=document.getElementById('demoName').value.trim();
+  const hotel=document.getElementById('demoHotel').value.trim();
+  const email=document.getElementById('demoEmail').value.trim();
+  const err=document.getElementById('demoErr');
+  err.style.display='none';
+  if(!name||!hotel||!email){err.textContent='Please fill in your name, hotel and email.';err.style.display='block';return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email address.';err.style.display='block';return}
+  const pains=[...document.querySelectorAll('input[name=pain]:checked')].map(i=>i.value).join(', ')||'not specified';
+  const tool=document.querySelector('input[name=tool]:checked')?.value||'not specified';
+  const size=document.querySelector('input[name=size]:checked')?.value||'not specified';
+  const phone=document.getElementById('demoPhone').value.trim();
+  const country=document.getElementById('demoCountry').value;
+  const note=document.getElementById('demoNote').value.trim();
+  document.getElementById('step1').style.display='none';
+  document.getElementById('step2').style.display='block';
+  document.getElementById('si2').style.color='#A8832A';
+  document.getElementById('si2c').style.background='#A8832A';
+  document.getElementById('si2c').style.color='white';
+  if(window.Calendly){
     Calendly.initInlineWidget({
-      url: 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1a1f1c&text_color=f5f2ec&primary_color=C9A84C',
-      parentElement: el,
-      prefill: { customAnswers: { a1: notes } },
+      url:'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
+      parentElement:document.getElementById('calEmbed'),
+      prefill:{name,email,customAnswers:{a1:`Hotel: ${hotel} | Phone: ${phone} | Country: ${country} | Challenges: ${pains} | Using: ${tool} | Size: ${size} | Note: ${note}`}},
     });
   } else {
-    el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.4);font-family:DM Sans,sans-serif;font-size:14px"><a href="https://calendly.com/theresidenceconcierge/30min" target="_blank" style="color:#C9A84C;font-weight:600">Open Calendly to book your slot →</a></div>';
+    document.getElementById('calEmbed').innerHTML='<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px"><p style="font-size:15px;color:#3d3d38">Click below to pick your time slot</p><a href="https://calendly.com/theresidenceconcierge/30min" target="_blank" style="padding:14px 32px;background:#1C3D2E;color:white;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none">Open calendar →</a></div>';
   }
 }
-// Close on backdrop click
-document.getElementById('demoModal').addEventListener('click', function(e) {
-  if (e.target === this) closeDemoModal();
-});
-// Limit pain points to 2
-document.addEventListener('change', function(e) {
-  if (e.target.name === 'pain') {
-    const checked = document.querySelectorAll('input[name=pain]:checked');
-    if (checked.length > 2) e.target.checked = false;
-  }
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('demoModal').addEventListener('click',function(e){if(e.target===this)closeDemoModal()});
+  document.addEventListener('change',function(e){
+    if(e.target.name==='pain'){const c=document.querySelectorAll('input[name=pain]:checked');if(c.length>2)e.target.checked=false}
+  });
 });
 </script>
-
-<!-- Calendly widget script -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
