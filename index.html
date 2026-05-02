@@ -340,6 +340,67 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
 .no-charge-tag { font-size: 17px !important; }
 .cta-sub    { font-size: 20px !important; }
 body        { font-size: 19px !important; }
+
+/* ── VIDEO MODAL ── */
+#videoModal{
+  display:none;position:fixed;inset:0;z-index:10000;
+  background:rgba(10,15,13,0.75);
+  backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  padding:16px;
+}
+#videoModal.open{display:flex}
+.video-modal-inner{
+  position:relative;
+  width:100%;max-width:900px;
+  height:90vh;max-height:620px;
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 32px 80px rgba(0,0,0,0.35);
+}
+#videoFrame{
+  width:100%;height:100%;
+  border:none;display:block;
+  border-radius:20px;
+}
+.video-close{
+  position:absolute;top:14px;right:18px;
+  background:rgba(245,242,236,0.15);
+  border:1px solid rgba(245,242,236,0.2);
+  color:rgba(245,242,236,0.8);
+  border-radius:50%;width:32px;height:32px;
+  font-size:18px;line-height:30px;text-align:center;
+  cursor:pointer;z-index:10;
+  transition:all .2s;font-family:'DM Sans',sans-serif;
+}
+.video-close:hover{background:rgba(245,242,236,0.25);color:white}
+
+/* Rotate prompt — portrait mobile only */
+#rotatePrompt{
+  display:none;position:absolute;inset:0;
+  background:var(--green);
+  border-radius:20px;
+  flex-direction:column;align-items:center;justify-content:center;
+  gap:20px;z-index:20;
+}
+#rotatePrompt.visible{display:flex}
+.rotate-icon{
+  font-size:48px;
+  animation:rotatePulse 1.5s ease-in-out infinite;
+}
+.rotate-text{
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;font-weight:500;
+  color:rgba(245,242,236,0.9);
+  text-align:center;line-height:1.7;
+  letter-spacing:0.3px;
+}
+.rotate-text strong{color:#C9A84C;font-weight:600}
+@keyframes rotatePulse{
+  0%,100%{transform:rotate(0deg)}
+  25%{transform:rotate(15deg)}
+  75%{transform:rotate(-15deg)}
+}
+@media(orientation:landscape){#rotatePrompt{display:none!important}}
 </style>
 </head>
 <body>
@@ -383,7 +444,7 @@ body        { font-size: 19px !important; }
     <p class="hero-sub">Your guests, always attended to. 24/7 AI-powered WhatsApp service that handles requests, earns your hotel commission, and never sleeps.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-primary" onclick="openDemoModal();return false;">Request a Demo</a>
-      <a href="#how" class="btn-secondary">See How It Works</a>
+      <a href="#" class="btn-secondary" onclick="openVideoModal();return false;">▶ &nbsp;Watch the Video</a>
     </div>
     <div class="hero-stats">
       <div>
@@ -1098,6 +1159,57 @@ document.addEventListener('DOMContentLoaded', function(){
     var s = document.querySelector('script[src*="calendly"]');
     if(s) s.addEventListener('load', _loadCalendlyIframe);
   }
+});
+</script>
+
+
+<!-- VIDEO MODAL -->
+<div id="videoModal" onclick="handleVideoModalClick(event)">
+  <div class="video-modal-inner" id="videoModalInner">
+    <button class="video-close" onclick="closeVideoModal()">×</button>
+    <div id="rotatePrompt">
+      <div class="rotate-icon">📱</div>
+      <div class="rotate-text"><strong>Rotate your screen</strong><br>This experience is best in landscape mode</div>
+    </div>
+    <iframe id="videoFrame" src="" allow="autoplay" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script>
+function openVideoModal(){
+  document.getElementById('videoModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Load the demo into the iframe
+  document.getElementById('videoFrame').src='meridian-demo-final.html';
+  checkRotate();
+}
+function closeVideoModal(){
+  document.getElementById('videoModal').classList.remove('open');
+  document.body.style.overflow='';
+  // Stop audio by clearing iframe src
+  document.getElementById('videoFrame').src='';
+}
+function handleVideoModalClick(e){
+  if(e.target===document.getElementById('videoModal')) closeVideoModal();
+}
+function checkRotate(){
+  var isPortrait = window.innerHeight > window.innerWidth;
+  var isMobile = window.innerWidth < 768;
+  var prompt = document.getElementById('rotatePrompt');
+  if(isMobile && isPortrait){
+    prompt.classList.add('visible');
+  } else {
+    prompt.classList.remove('visible');
+  }
+}
+window.addEventListener('resize', function(){
+  if(document.getElementById('videoModal').classList.contains('open')) checkRotate();
+});
+window.addEventListener('orientationchange', function(){
+  setTimeout(checkRotate, 300);
+});
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeVideoModal();
 });
 </script>
 
