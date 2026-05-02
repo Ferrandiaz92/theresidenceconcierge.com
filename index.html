@@ -869,9 +869,6 @@ function handleDemo(){
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
-<!-- Off-screen Calendly preload: loads as soon as page is ready, invisible to user -->
-<div id="calPreload" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none" aria-hidden="true"></div>
-
 <style>
 .dm-pill{padding:7px 15px;border-radius:20px;border:1px solid rgba(0,0,0,0.1);background:#FAFAF8;cursor:pointer;font-size:13px;color:#3d3d38;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center}
 .dm-pill:hover{border-color:rgba(28,61,46,0.3);background:#EBF2EE}
@@ -1007,33 +1004,51 @@ function handleDemo(){
 </div>
 
 <script>
-var _calPreloaded = false;
+var _calReady    = false;   // true once iframe is loaded into calEmbed
+var _calLoadedAt = 0;       // timestamp, for 10-min stale check
+var CAL_TTL      = 10 * 60 * 1000; // 10 minutes
+var CAL_URL      = 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E';
 
-function _startCalendlyPreload(){
-  if(_calPreloaded || !window.Calendly) return;
-  _calPreloaded = true;
+function _loadCalendlyIframe(){
+  if(!window.Calendly) return;
+  _calReady    = true;
+  _calLoadedAt = Date.now();
   Calendly.initInlineWidget({
-    url: 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
-    parentElement: document.getElementById('calPreload'),
+    url: CAL_URL,
+    parentElement: document.getElementById('calEmbed'),
     prefill: {},
     resize: true
   });
 }
 
+function _isStale(){
+  return !_calReady || (Date.now() - _calLoadedAt) > CAL_TTL;
+}
+
+function _refreshIfStale(){
+  if(!_isStale()) return;
+  // Wipe and reload — only happens if >10 min have passed
+  document.getElementById('calEmbed').innerHTML = '';
+  _calReady = false;
+  _loadCalendlyIframe();
+}
+
 function openDemoModal(){
   document.getElementById('demoModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  _refreshIfStale(); // no-op if iframe is fresh
 }
 
 function closeDemoModal(){
+  // Hide modal + reset to step 1 — but DO NOT touch calEmbed
   document.getElementById('demoModal').style.display = 'none';
   document.body.style.overflow = '';
-  document.getElementById('step1').style.display = 'block';
-  document.getElementById('step2').style.display = 'none';
-  document.getElementById('si2').style.color = '#9CA3AF';
+  document.getElementById('step1').style.display  = 'block';
+  document.getElementById('step2').style.display  = 'none';
+  document.getElementById('si2').style.color      = '#9CA3AF';
   document.getElementById('si2c').style.background = '#F3F4F6';
-  document.getElementById('si2c').style.color = '#9CA3AF';
-  document.getElementById('calEmbed').innerHTML = '';
+  document.getElementById('si2c').style.color     = '#9CA3AF';
+  // calEmbed iframe intentionally kept alive — instant on next open
 }
 
 function goStep2(){
@@ -1054,42 +1069,34 @@ function goStep2(){
     return;
   }
 
-  var size    = (document.querySelector('input[name=size]:checked') || {}).value || '';
+  var size    = (document.querySelector('input[name=size]:checked')    || {}).value || '';
   var acctype = (document.querySelector('input[name=acctype]:checked') || {}).value || '';
   var phone   = document.getElementById('demoPhone').value.trim();
   var country = document.getElementById('demoCountry').value;
-  var note    = 'Hotel: '+hotel+' | Type: '+acctype+' | Size: '+size+' | Phone: '+phone+' | Country: '+country;
 
-  document.getElementById('step1').style.display = 'none';
-  document.getElementById('step2').style.display = 'flex';
-  document.getElementById('step2').style.flexDirection = 'column';
-  document.getElementById('si2').style.color = '#A8832A';
+  // Switch UI to step 2 — Calendly iframe is already loaded, just reveal it
+  document.getElementById('step1').style.display  = 'none';
+  document.getElementById('step2').style.display  = 'block';
+  document.getElementById('si2').style.color      = '#A8832A';
   document.getElementById('si2c').style.background = '#A8832A';
-  document.getElementById('si2c').style.color = 'white';
+  document.getElementById('si2c').style.color     = 'white';
 
-  if(!window.Calendly){
+  if(!window.Calendly || !_calReady){
+    // Fallback: Calendly never loaded (e.g. ad blocker)
     document.getElementById('calEmbed').innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px"><p style="font-size:15px;color:#3d3d38">Click below to open the calendar</p><a href="https://calendly.com/theresidenceconcierge/30min" target="_blank" style="padding:14px 32px;background:#1C3D2E;color:white;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none">Open calendar →</a></div>';
-    return;
   }
-
-  // Re-init in real embed with prefill (JS+CSS already warm from off-screen preload)
-  document.getElementById('calEmbed').innerHTML = '';
-  Calendly.initInlineWidget({
-    url: 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
-    parentElement: document.getElementById('calEmbed'),
-    prefill: { name: name, email: email, customAnswers: { a1: note } },
-    resize: true
-  });
+  // iframe already visible — no re-init needed
 }
 
 document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('demoModal').addEventListener('click', function(e){ if(e.target===this) closeDemoModal(); });
-  // Start off-screen preload immediately on page load
+
+  // Load Calendly iframe immediately on page load — before anyone clicks anything
   if(window.Calendly){
-    _startCalendlyPreload();
+    _loadCalendlyIframe();
   } else {
-    var calScript = document.querySelector('script[src*="calendly"]');
-    if(calScript) calScript.addEventListener('load', _startCalendlyPreload);
+    var s = document.querySelector('script[src*="calendly"]');
+    if(s) s.addEventListener('load', _loadCalendlyIframe);
   }
 });
 </script>
