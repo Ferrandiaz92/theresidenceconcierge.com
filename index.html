@@ -869,22 +869,28 @@ function handleDemo(){
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
+<!-- Off-screen Calendly preload: loads as soon as page is ready, invisible to user -->
+<div id="calPreload" style="position:fixed;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;pointer-events:none" aria-hidden="true"></div>
+
 <style>
-.dm-pill{padding:7px 16px;border-radius:20px;border:1px solid rgba(0,0,0,0.1);background:#FAFAF8;cursor:pointer;font-size:13px;color:#3d3d38;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap}
+.dm-pill{padding:7px 15px;border-radius:20px;border:1px solid rgba(0,0,0,0.1);background:#FAFAF8;cursor:pointer;font-size:13px;color:#3d3d38;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center}
 .dm-pill:hover{border-color:rgba(28,61,46,0.3);background:#EBF2EE}
 .dm-pill:has(input:checked){border-color:#1C3D2E;background:#EBF2EE;color:#1C3D2E;font-weight:600}
 .dm-pill input{display:none}
 .dm-input{width:100%;padding:10px 12px;border:1px solid rgba(0,0,0,0.12);border-radius:9px;font-size:13px;font-family:'DM Sans',sans-serif;color:#1a1a18;background:#FAFAF8;outline:none;box-sizing:border-box}
 .dm-input:focus{border-color:#1C3D2E;background:white}
-@media(max-width:600px){
-  #step1{padding:14px 14px 18px!important}
-  .dm-two-col{grid-template-columns:1fr!important}
+.dm-label{font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:8px;display:block}
+.dm-field-label{font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px}
+@media(max-width:540px){
+  #step1{padding:14px!important}
+  .dm-steplabel{display:none!important}
+  .dm-name-row{grid-template-columns:1fr!important}
 }
 </style>
 
 <!-- DEMO MODAL -->
 <div id="demoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,15,13,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:10px">
-  <div style="background:#FFFFFF;border-radius:20px;max-width:780px;width:100%;max-height:96vh;box-shadow:0 32px 80px rgba(0,0,0,0.18);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;position:relative;overflow:hidden;height:96vh">
+  <div style="background:#FFFFFF;border-radius:20px;max-width:520px;width:100%;max-height:96vh;box-shadow:0 32px 80px rgba(0,0,0,0.18);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;overflow:hidden">
 
     <!-- Header -->
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(0,0,0,0.07);flex-shrink:0">
@@ -892,88 +898,108 @@ function handleDemo(){
         <span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;font-weight:400;color:#1a1a18">Book your demo</span>
         <div style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:0.06em">
           <div id="si1" style="display:flex;align-items:center;gap:5px;color:#A8832A">
-            <div style="width:20px;height:20px;border-radius:50%;background:#A8832A;color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700">1</div>
+            <div style="width:20px;height:20px;border-radius:50%;background:#A8832A;color:white;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">1</div>
             <span class="dm-steplabel">ABOUT YOU</span>
           </div>
-          <div style="width:24px;height:1px;background:#E5E7EB"></div>
+          <div style="width:22px;height:1px;background:#E5E7EB;flex-shrink:0"></div>
           <div id="si2" style="display:flex;align-items:center;gap:5px;color:#9CA3AF">
-            <div id="si2c" style="width:20px;height:20px;border-radius:50%;background:#F3F4F6;color:#9CA3AF;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700">2</div>
+            <div id="si2c" style="width:20px;height:20px;border-radius:50%;background:#F3F4F6;color:#9CA3AF;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0">2</div>
             <span class="dm-steplabel">PICK A TIME</span>
           </div>
         </div>
       </div>
-      <button onclick="closeDemoModal()" style="background:none;border:none;font-size:22px;color:#9CA3AF;cursor:pointer;line-height:1;padding:0">×</button>
+      <button onclick="closeDemoModal()" style="background:none;border:none;font-size:22px;color:#9CA3AF;cursor:pointer;line-height:1;padding:0;flex-shrink:0">×</button>
     </div>
 
-    <!-- Step 1 -->
-    <div id="step1" style="padding:20px 24px;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch">
+    <!-- Step 1: single column -->
+    <div id="step1" style="padding:18px 22px 22px;overflow-y:auto;flex:1;-webkit-overflow-scrolling:touch">
 
-      <!-- Two-col on desktop, single col on mobile -->
-      <div class="dm-two-col" style="display:grid;grid-template-columns:1fr 1.15fr;gap:28px">
-
-        <!-- Left: property size only -->
+      <!-- Name + Hotel -->
+      <div class="dm-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px">
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:10px">Property size</div>
-          <div style="display:flex;flex-wrap:wrap;gap:7px">
-            <label class="dm-pill"><input type="radio" name="size" value="small"> Under 20</label>
-            <label class="dm-pill"><input type="radio" name="size" value="medium"> 20–50 rooms</label>
-            <label class="dm-pill"><input type="radio" name="size" value="large"> 50–150 rooms</label>
-            <label class="dm-pill"><input type="radio" name="size" value="enterprise"> 150+ / multi</label>
-          </div>
+          <label class="dm-field-label">Name *</label>
+          <input id="demoName" type="text" placeholder="Maria Georgiou" class="dm-input">
         </div>
-
-        <!-- Right: contact details -->
         <div>
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:12px">Your details</div>
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px">
-            <div>
-              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">Name *</label>
-              <input id="demoName" type="text" placeholder="Maria Georgiou" class="dm-input">
-            </div>
-            <div>
-              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">Hotel / Property *</label>
-              <input id="demoHotel" type="text" placeholder="Four Seasons Limassol" class="dm-input">
-            </div>
-          </div>
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px">
-            <div>
-              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">Business email *</label>
-              <input id="demoEmail" type="email" placeholder="maria@hotel.com" class="dm-input">
-            </div>
-            <div>
-              <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">Phone (optional)</label>
-              <input id="demoPhone" type="tel" placeholder="+357 99 000 000" class="dm-input">
-            </div>
-          </div>
-
-          <div style="margin-bottom:14px">
-            <label style="font-size:12px;font-weight:600;color:#3d3d38;display:block;margin-bottom:4px">Country</label>
-            <select id="demoCountry" class="dm-input" style="appearance:none">
-              <option value="">Select country</option>
-              <option>Cyprus</option><option>Greece</option><option>United Kingdom</option>
-              <option>UAE</option><option>Spain</option><option>Italy</option>
-              <option>France</option><option>Germany</option><option>Portugal</option>
-              <option>Malta</option><option>Croatia</option><option>Other</option>
-            </select>
-          </div>
-
-          <div id="demoErr" style="display:none;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:9px 13px;font-size:13px;color:#991B1B;margin-bottom:10px"></div>
-
-          <button id="demoBtn" onclick="goStep2()" style="width:100%;padding:14px;background:#1C3D2E;color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s">
-            Pick a time →
-          </button>
-          <div style="text-align:center;margin-top:9px;font-size:12px;color:#9CA3AF">
-            Or email <a href="mailto:hello@theresidenceconcierge.com" style="color:#A8832A">hello@theresidenceconcierge.com</a>
-          </div>
+          <label class="dm-field-label">Hotel / Property *</label>
+          <input id="demoHotel" type="text" placeholder="Four Seasons Limassol" class="dm-input">
         </div>
-
       </div>
+
+      <!-- Email + Phone -->
+      <div class="dm-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px">
+        <div>
+          <label class="dm-field-label">Business email *</label>
+          <input id="demoEmail" type="email" placeholder="maria@hotel.com" class="dm-input">
+        </div>
+        <div>
+          <label class="dm-field-label">Phone (optional)</label>
+          <input id="demoPhone" type="tel" placeholder="+357 99 000 000" class="dm-input">
+        </div>
+      </div>
+
+      <!-- Country -->
+      <div style="margin-bottom:16px">
+        <label class="dm-field-label">Country</label>
+        <select id="demoCountry" class="dm-input" style="appearance:none">
+          <option value="">Select country</option>
+          <option>Cyprus</option><option>Greece</option><option>United Kingdom</option>
+          <option>UAE</option><option>Spain</option><option>Italy</option>
+          <option>France</option><option>Germany</option><option>Portugal</option>
+          <option>Malta</option><option>Croatia</option><option>Other</option>
+        </select>
+      </div>
+
+      <!-- Property size -->
+      <div style="margin-bottom:14px">
+        <span class="dm-label">Property size</span>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <label class="dm-pill"><input type="radio" name="size" value="small"> Under 20</label>
+          <label class="dm-pill"><input type="radio" name="size" value="medium"> 20–50 rooms</label>
+          <label class="dm-pill"><input type="radio" name="size" value="large"> 50–150 rooms</label>
+          <label class="dm-pill"><input type="radio" name="size" value="enterprise"> 150+ / multi</label>
+        </div>
+      </div>
+
+      <!-- Accommodation type -->
+      <div style="margin-bottom:18px">
+        <span class="dm-label">Accommodation type</span>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <label class="dm-pill"><input type="radio" name="acctype" value="hotel"> Hotel</label>
+          <label class="dm-pill"><input type="radio" name="acctype" value="vacation_rental"> Vacation Rental</label>
+          <label class="dm-pill"><input type="radio" name="acctype" value="aparthotel"> Aparthotel</label>
+          <label class="dm-pill"><input type="radio" name="acctype" value="resort"> Resort</label>
+          <label class="dm-pill"><input type="radio" name="acctype" value="boutique"> Boutique</label>
+          <label class="dm-pill"><input type="radio" name="acctype" value="other"> Other</label>
+        </div>
+      </div>
+
+      <!-- Marketing consent -->
+      <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer">
+        <input type="checkbox" id="demoMarketing" style="margin-top:2px;width:15px;height:15px;accent-color:#1C3D2E;flex-shrink:0">
+        <span style="font-size:12px;color:#6e6a60;line-height:1.5">I'd like to receive updates and news from The Residence Concierge. You can opt out at any time.</span>
+      </label>
+
+      <!-- Privacy policy -->
+      <p style="font-size:11px;color:#9CA3AF;line-height:1.6;margin-bottom:12px">
+        By submitting, I accept The Residence Concierge's <a href="/privacy-policy.html" style="color:#A8832A;text-decoration:none">Privacy Policy</a>.
+      </p>
+
+      <!-- Error -->
+      <div id="demoErr" style="display:none;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:9px 13px;font-size:13px;color:#991B1B;margin-bottom:10px"></div>
+
+      <!-- CTA -->
+      <button onclick="goStep2()" style="width:100%;padding:14px;background:#1C3D2E;color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s">
+        Pick a time →
+      </button>
+      <div style="text-align:center;margin-top:9px;font-size:12px;color:#9CA3AF">
+        Or email <a href="mailto:hello@theresidenceconcierge.com" style="color:#A8832A">hello@theresidenceconcierge.com</a>
+      </div>
+
     </div>
 
     <!-- Step 2: Calendly -->
-    <div id="step2" style="display:none;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch">
+    <div id="step2" style="display:none;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;min-height:0">
       <div id="calEmbed" style="min-height:700px"></div>
     </div>
 
@@ -981,25 +1007,22 @@ function handleDemo(){
 </div>
 
 <script>
-var _calLoaded = false;
+var _calPreloaded = false;
 
-function _initCalendly(name, email, note){
-  if(!window.Calendly) return false;
-  document.getElementById('calEmbed').innerHTML = '';
+function _startCalendlyPreload(){
+  if(_calPreloaded || !window.Calendly) return;
+  _calPreloaded = true;
   Calendly.initInlineWidget({
     url: 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
-    parentElement: document.getElementById('calEmbed'),
-    prefill: { name: name||'', email: email||'', customAnswers: { a1: note||'' } },
+    parentElement: document.getElementById('calPreload'),
+    prefill: {},
     resize: true
   });
-  return true;
 }
 
 function openDemoModal(){
   document.getElementById('demoModal').style.display = 'flex';
   document.body.style.overflow = 'hidden';
-  // Silent background preload — no name/email yet, just warms up the iframe
-  if(!_calLoaded){ _calLoaded = _initCalendly('','',''); }
 }
 
 function closeDemoModal(){
@@ -1011,7 +1034,6 @@ function closeDemoModal(){
   document.getElementById('si2c').style.background = '#F3F4F6';
   document.getElementById('si2c').style.color = '#9CA3AF';
   document.getElementById('calEmbed').innerHTML = '';
-  _calLoaded = false;
 }
 
 function goStep2(){
@@ -1032,14 +1054,15 @@ function goStep2(){
     return;
   }
 
-  var size    = (document.querySelector('input[name=size]:checked') || {}).value || 'not specified';
+  var size    = (document.querySelector('input[name=size]:checked') || {}).value || '';
+  var acctype = (document.querySelector('input[name=acctype]:checked') || {}).value || '';
   var phone   = document.getElementById('demoPhone').value.trim();
   var country = document.getElementById('demoCountry').value;
-  var note    = 'Hotel: '+hotel+' | Phone: '+phone+' | Country: '+country+' | Size: '+size;
+  var note    = 'Hotel: '+hotel+' | Type: '+acctype+' | Size: '+size+' | Phone: '+phone+' | Country: '+country;
 
-  // Switch UI to step 2
   document.getElementById('step1').style.display = 'none';
-  document.getElementById('step2').style.display = 'block';
+  document.getElementById('step2').style.display = 'flex';
+  document.getElementById('step2').style.flexDirection = 'column';
   document.getElementById('si2').style.color = '#A8832A';
   document.getElementById('si2c').style.background = '#A8832A';
   document.getElementById('si2c').style.color = 'white';
@@ -1049,19 +1072,25 @@ function goStep2(){
     return;
   }
 
-  // Re-init with real prefill (Calendly JS & CSS already cached from preload)
-  _calLoaded = false;
-  _initCalendly(name, email, note);
-  _calLoaded = true;
+  // Re-init in real embed with prefill (JS+CSS already warm from off-screen preload)
+  document.getElementById('calEmbed').innerHTML = '';
+  Calendly.initInlineWidget({
+    url: 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
+    parentElement: document.getElementById('calEmbed'),
+    prefill: { name: name, email: email, customAnswers: { a1: note } },
+    resize: true
+  });
 }
-
-// Hide step labels on narrow screens
-var styleEl = document.createElement('style');
-styleEl.textContent = '@media(max-width:520px){.dm-steplabel{display:none}}';
-document.head.appendChild(styleEl);
 
 document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('demoModal').addEventListener('click', function(e){ if(e.target===this) closeDemoModal(); });
+  // Start off-screen preload immediately on page load
+  if(window.Calendly){
+    _startCalendlyPreload();
+  } else {
+    var calScript = document.querySelector('script[src*="calendly"]');
+    if(calScript) calScript.addEventListener('load', _startCalendlyPreload);
+  }
 });
 </script>
 
