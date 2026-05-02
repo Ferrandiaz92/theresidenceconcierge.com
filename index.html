@@ -1031,12 +1031,12 @@ function goToStep2() {
   el.innerHTML = '';
   if (window.Calendly) {
     Calendly.initInlineWidget({
-      url: 'https://calendly.com/ferran-diaz92/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1a1f1c&text_color=f5f2ec&primary_color=C9A84C',
+      url: 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1a1f1c&text_color=f5f2ec&primary_color=C9A84C',
       parentElement: el,
       prefill: { customAnswers: { a1: notes } },
     });
   } else {
-    el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.4);font-family:DM Sans,sans-serif;font-size:14px"><a href="https://calendly.com/ferran-diaz92/30min" target="_blank" style="color:#C9A84C;font-weight:600">Open Calendly to book your slot →</a></div>';
+    el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.4);font-family:DM Sans,sans-serif;font-size:14px"><a href="https://calendly.com/theresidenceconcierge/30min" target="_blank" style="color:#C9A84C;font-weight:600">Open Calendly to book your slot →</a></div>';
   }
 }
 // Close on backdrop click
