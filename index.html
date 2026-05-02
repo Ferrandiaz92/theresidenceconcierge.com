@@ -868,7 +868,7 @@ function handleDemo(){
 
 <!-- DEMO MODAL -->
 <div id="demoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(10,15,13,0.65);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:20px">
-  <div style="background:#FFFFFF;border-radius:20px;max-width:860px;width:100%;max-height:92vh;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.18);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;position:relative">
+  <div style="background:#FFFFFF;border-radius:20px;max-width:860px;width:100%;max-height:92vh;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,0.18);font-family:'DM Sans',sans-serif;display:flex;flex-direction:column;position:relative;height:92vh">
 
     <!-- Close -->
     <button onclick="closeDemoModal()" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:24px;color:#9CA3AF;cursor:pointer;line-height:1;z-index:10">×</button>
@@ -897,20 +897,20 @@ function handleDemo(){
         <div>
           <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:12px">Biggest challenge? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#9CA3AF">(up to 2)</span></div>
           <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:22px">
-            <label class="dm-opt"><input type="checkbox" name="pain" value="platform"> 🤖 Current platform is outdated or expensive</label>
-            <label class="dm-opt"><input type="checkbox" name="pain" value="calls"> 📞 Guests calling reception for everything</label>
-            <label class="dm-opt"><input type="checkbox" name="pain" value="otas"> 💰 Paying 15–20% commission to OTAs</label>
-            <label class="dm-opt"><input type="checkbox" name="pain" value="partners"> 🤝 Partners hard to manage and track</label>
-            <label class="dm-opt"><input type="checkbox" name="pain" value="events"> 🎉 Events poorly promoted, low attendance</label>
-            <label class="dm-opt"><input type="checkbox" name="pain" value="arrival"> 😴 Guest arrives and nobody knows anything</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="platform"> Current platform feels outdated or expensive</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="manual"> Front office not automated — everything handled manually</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="otas"> Paying 15–20% commission to OTAs</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="partners"> Partners hard to manage and track</label>
+            <label class="dm-opt"><input type="checkbox" name="pain" value="events"> Events poorly promoted, low attendance</label>
           </div>
 
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:10px">Currently using?</div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:10px">How do you currently stay in touch with guests?</div>
           <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:22px">
-            <label class="dm-opt"><input type="radio" name="tool" value="nothing"> Nothing / WhatsApp personal</label>
-            <label class="dm-opt"><input type="radio" name="tool" value="email"> Email only</label>
-            <label class="dm-opt"><input type="radio" name="tool" value="widget"> Chat widget on website</label>
-            <label class="dm-opt"><input type="radio" name="tool" value="platform"> Another platform (HiJiffy, Whistle…)</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="phone"> Mostly by phone</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="email"> Mostly by email</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="agencies"> Mostly through travel agencies / OTAs</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="whatsapp"> We already use WhatsApp or Telegram</label>
+            <label class="dm-opt"><input type="radio" name="tool" value="none"> We don't have a structured way yet</label>
           </div>
 
           <div style="font-size:11px;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#6e6a60;margin-bottom:10px">Property size?</div>
@@ -977,8 +977,8 @@ function handleDemo(){
     </div>
 
     <!-- Step 2: Calendly -->
-    <div id="step2" style="display:none;flex:1">
-      <div id="calEmbed" style="min-height:630px"></div>
+    <div id="step2" style="display:none;flex:1;overflow:hidden;display:none">
+      <div id="calEmbed" style="min-height:700px;height:700px;overflow:hidden"></div>
     </div>
 
   </div>
