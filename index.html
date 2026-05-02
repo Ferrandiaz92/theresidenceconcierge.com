@@ -357,7 +357,7 @@ body        { font-size: 19px !important; }
     <a href="#partnership">Partnership</a>
     <a href="#contact">Contact</a>
   </div>
-  <a href="#contact" class="nav-cta">Request a Demo</a>
+  <a href="#contact" class="nav-cta" onclick="openDemoModal();return false;">Request a Demo</a>
   <div class="nav-hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -754,9 +754,8 @@ body        { font-size: 19px !important; }
     <div class="section-label reveal">Get Started</div>
     <h2 class="cta-title reveal">Your guests deserve<br>a <em>better</em> concierge</h2>
     <p class="cta-sub reveal">Setup takes 48 hours. No long contracts. Cancel anytime.<br>You see the value before you share it.<br>Your team stays at the centre. The platform handles the noise.</p>
-    <div class="cta-form reveal">
-      <input type="email" class="cta-input" placeholder="Your hotel email address" id="emailInput">
-      <button class="btn-primary" onclick="handleDemo()">Request Demo</button>
+    <div class="cta-form reveal" style="justify-content:center">
+      <button class="btn-primary" onclick="openDemoModal()">Book a Demo Call</button>
     </div>
     <p class="cta-note reveal">Or email us directly at <a href="mailto:hello@theresidenceconcierge.com" style="color:var(--gold);text-decoration:none">hello@theresidenceconcierge.com</a></p>
   </div>
@@ -863,6 +862,199 @@ function handleDemo(){
   </svg>
   <span class="wa-float-label">Chat with us</span>
 </a>
+
+
+<!-- DEMO MODAL -->
+<div id="demoModal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px">
+  <div style="background:#1a1f1c;border:1px solid rgba(201,168,76,0.2);border-radius:16px;max-width:860px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,0.5)">
+
+    <!-- Modal header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 28px;border-bottom:1px solid rgba(255,255,255,0.07)">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#f5f2ec;font-weight:300">Book your demo call</div>
+      <button onclick="closeDemoModal()" style="background:none;border:none;color:rgba(255,255,255,0.4);font-size:22px;cursor:pointer;line-height:1;padding:4px">×</button>
+    </div>
+
+    <!-- Step indicator -->
+    <div style="display:flex;align-items:center;gap:8px;padding:16px 28px;border-bottom:1px solid rgba(255,255,255,0.07)">
+      <div id="step1ind" style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:0.06em;color:#C9A84C">
+        <div style="width:22px;height:22px;border-radius:50%;background:#C9A84C;color:#1a1f1c;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">1</div>
+        TELL US ABOUT YOU
+      </div>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,0.1)"></div>
+      <div id="step2ind" style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;letter-spacing:0.06em;color:rgba(255,255,255,0.3)">
+        <div id="step2circle" style="width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.4);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700">2</div>
+        PICK A TIME
+      </div>
+    </div>
+
+    <!-- Step 1 -->
+    <div id="demoStep1" style="padding:28px;overflow-y:auto;flex:1">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+
+        <!-- Left: what to expect -->
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#C9A84C;margin-bottom:16px">What you'll see on the call</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">💬</div>
+              <div style="font-size:13px;color:rgba(245,242,236,0.8);line-height:1.6">Live dashboard with real hotel data — guests, bookings, commissions</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">🤖</div>
+              <div style="font-size:13px;color:rgba(245,242,236,0.8);line-height:1.6">The bot handling real guest requests — bookings, taxi, events, NPS</div>
+            </div>
+            <div style="display:flex;gap:12px;align-items:flex-start">
+              <div style="width:28px;height:28px;border-radius:50%;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0">📋</div>
+              <div style="font-size:13px;color:rgba(245,242,236,0.8);line-height:1.6">A personalised setup plan for your hotel — go live in 48 hours</div>
+            </div>
+          </div>
+
+          <div style="margin-top:24px;padding:14px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);border-radius:10px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#C9A84C;margin-bottom:6px">30 minutes · Google Meet</div>
+            <div style="font-size:12px;color:rgba(245,242,236,0.5);line-height:1.6">No commitment. No long pitch. Just the platform working live for your hotel type.</div>
+          </div>
+        </div>
+
+        <!-- Right: qualification questions -->
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:16px">Help us prepare your demo</div>
+
+          <!-- Q1: Pain points -->
+          <div style="margin-bottom:20px">
+            <div style="font-size:13px;color:rgba(245,242,236,0.7);margin-bottom:10px;line-height:1.5">What's your biggest challenge? <span style="color:rgba(255,255,255,0.3);font-size:11px">(pick up to 2)</span></div>
+            <div style="display:flex;flex-direction:column;gap:6px" id="painOptions">
+              <label class="demo-opt"><input type="checkbox" name="pain" value="platform"> 🤖 Current platform feels outdated or too expensive</label>
+              <label class="demo-opt"><input type="checkbox" name="pain" value="calls"> 📞 Guests calling reception for everything</label>
+              <label class="demo-opt"><input type="checkbox" name="pain" value="otas"> 💰 Paying 15–20% commission to OTAs</label>
+              <label class="demo-opt"><input type="checkbox" name="pain" value="partners"> 🤝 Partners hard to manage and track</label>
+              <label class="demo-opt"><input type="checkbox" name="pain" value="events"> 🎉 Events poorly promoted, low attendance</label>
+              <label class="demo-opt"><input type="checkbox" name="pain" value="arrival"> 😴 Guest arrives and nobody knows anything about them</label>
+            </div>
+          </div>
+
+          <!-- Q2: Current tool -->
+          <div style="margin-bottom:20px">
+            <div style="font-size:13px;color:rgba(245,242,236,0.7);margin-bottom:10px">What are you currently using?</div>
+            <div style="display:flex;flex-direction:column;gap:6px" id="toolOptions">
+              <label class="demo-opt"><input type="radio" name="tool" value="nothing"> Nothing / WhatsApp personal number</label>
+              <label class="demo-opt"><input type="radio" name="tool" value="email"> Email only</label>
+              <label class="demo-opt"><input type="radio" name="tool" value="widget"> A chat widget on the website</label>
+              <label class="demo-opt"><input type="radio" name="tool" value="platform"> Another platform (HiJiffy, Whistle, Quicktext…)</label>
+            </div>
+          </div>
+
+          <!-- Q3: Size -->
+          <div>
+            <div style="font-size:13px;color:rgba(245,242,236,0.7);margin-bottom:10px">Property size?</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px" id="sizeOptions">
+              <label class="demo-size"><input type="radio" name="size" value="small"> Under 20 rooms</label>
+              <label class="demo-size"><input type="radio" name="size" value="medium"> 20–50 rooms</label>
+              <label class="demo-size"><input type="radio" name="size" value="large"> 50–150 rooms</label>
+              <label class="demo-size"><input type="radio" name="size" value="enterprise"> 150+ / multi-property</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:flex-end;margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)">
+        <button onclick="goToStep2()" style="padding:13px 32px;background:#C9A84C;color:#1a1f1c;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.3px">
+          Pick a time →
+        </button>
+      </div>
+    </div>
+
+    <!-- Step 2: Calendly -->
+    <div id="demoStep2" style="display:none;flex:1;min-height:580px;padding:0">
+      <div id="calendlyEmbed" style="height:580px"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal styles -->
+<style>
+.demo-opt {
+  display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;
+  border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);
+  cursor:pointer;font-size:12px;color:rgba(245,242,236,0.7);
+  font-family:'DM Sans',sans-serif;transition:all .15s;
+}
+.demo-opt:hover { border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.05); }
+.demo-opt input[type=checkbox]:checked ~ *, .demo-opt input[type=radio]:checked ~ * { color:#f5f2ec; }
+.demo-opt:has(input:checked) { border-color:#C9A84C;background:rgba(201,168,76,0.08);color:#f5f2ec; }
+.demo-size {
+  padding:7px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.03);cursor:pointer;font-size:12px;
+  color:rgba(245,242,236,0.6);font-family:'DM Sans',sans-serif;transition:all .15s;
+}
+.demo-size:hover { border-color:rgba(201,168,76,0.3); }
+.demo-size:has(input:checked) { border-color:#C9A84C;background:rgba(201,168,76,0.1);color:#f5f2ec; }
+.demo-opt input, .demo-size input { display:none; }
+@media(max-width:640px){
+  #demoStep1 > div:first-child { grid-template-columns:1fr !important; }
+}
+</style>
+
+<!-- Modal JS -->
+<script>
+function openDemoModal() {
+  const m = document.getElementById('demoModal');
+  m.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeDemoModal() {
+  document.getElementById('demoModal').style.display = 'none';
+  document.body.style.overflow = '';
+  // Reset to step 1
+  document.getElementById('demoStep1').style.display = 'block';
+  document.getElementById('demoStep2').style.display = 'none';
+  document.getElementById('step2ind').style.color = 'rgba(255,255,255,0.3)';
+  document.getElementById('step2circle').style.background = 'rgba(255,255,255,0.1)';
+  document.getElementById('step2circle').style.color = 'rgba(255,255,255,0.4)';
+}
+function goToStep2() {
+  // Collect answers
+  const pains = [...document.querySelectorAll('input[name=pain]:checked')].map(i=>i.value);
+  const tool  = document.querySelector('input[name=tool]:checked')?.value || '';
+  const size  = document.querySelector('input[name=size]:checked')?.value || '';
+  const notes = `Challenges: ${pains.join(', ')||'not specified'} | Currently using: ${tool||'not specified'} | Size: ${size||'not specified'}`;
+
+  // Show step 2
+  document.getElementById('demoStep1').style.display = 'none';
+  document.getElementById('demoStep2').style.display = 'block';
+  document.getElementById('step2ind').style.color = '#C9A84C';
+  document.getElementById('step2circle').style.background = '#C9A84C';
+  document.getElementById('step2circle').style.color = '#1a1f1c';
+
+  // Load Calendly
+  const el = document.getElementById('calendlyEmbed');
+  el.innerHTML = '';
+  if (window.Calendly) {
+    Calendly.initInlineWidget({
+      url: 'https://calendly.com/ferran-diaz92/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=1a1f1c&text_color=f5f2ec&primary_color=C9A84C',
+      parentElement: el,
+      prefill: { customAnswers: { a1: notes } },
+    });
+  } else {
+    el.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:rgba(255,255,255,0.4);font-family:DM Sans,sans-serif;font-size:14px"><a href="https://calendly.com/ferran-diaz92/30min" target="_blank" style="color:#C9A84C;font-weight:600">Open Calendly to book your slot →</a></div>';
+  }
+}
+// Close on backdrop click
+document.getElementById('demoModal').addEventListener('click', function(e) {
+  if (e.target === this) closeDemoModal();
+});
+// Limit pain points to 2
+document.addEventListener('change', function(e) {
+  if (e.target.name === 'pain') {
+    const checked = document.querySelectorAll('input[name=pain]:checked');
+    if (checked.length > 2) e.target.checked = false;
+  }
+});
+</script>
+
+<!-- Calendly widget script -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body>
 </html>
