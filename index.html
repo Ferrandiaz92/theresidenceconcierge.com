@@ -1007,7 +1007,28 @@ function handleDemo(){
 </style>
 
 <script>
-function openDemoModal(){document.getElementById('demoModal').style.display='flex';document.body.style.overflow='hidden'}
+var _calPrefill = null;
+var _calLoaded = false;
+
+function openDemoModal(){
+  document.getElementById('demoModal').style.display='flex';
+  document.body.style.overflow='hidden';
+  // Preload Calendly in background with blank prefill as soon as modal opens
+  _preloadCalendly();
+}
+
+function _preloadCalendly(){
+  if(_calLoaded) return;
+  if(!window.Calendly) return; // script not ready yet — goStep2 will init on click
+  _calLoaded = true;
+  Calendly.initInlineWidget({
+    url:'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
+    parentElement:document.getElementById('calEmbed'),
+    prefill:{},
+    resize:true,
+  });
+}
+
 function closeDemoModal(){
   document.getElementById('demoModal').style.display='none';
   document.body.style.overflow='';
@@ -1016,8 +1037,12 @@ function closeDemoModal(){
   document.getElementById('si2').style.color='#9CA3AF';
   document.getElementById('si2c').style.background='#F3F4F6';
   document.getElementById('si2c').style.color='#9CA3AF';
+  // Reset so next open re-preloads with fresh prefill
   document.getElementById('calEmbed').innerHTML='';
+  _calLoaded = false;
+  _calPrefill = null;
 }
+
 function goStep2(){
   const name=document.getElementById('demoName').value.trim();
   const hotel=document.getElementById('demoHotel').value.trim();
@@ -1032,31 +1057,41 @@ function goStep2(){
   const phone=document.getElementById('demoPhone').value.trim();
   const country=document.getElementById('demoCountry').value;
   const note=document.getElementById('demoNote').value.trim();
+
   document.getElementById('step1').style.display='none';
   document.getElementById('step2').style.display='block';
   document.getElementById('si2').style.color='#A8832A';
   document.getElementById('si2c').style.background='#A8832A';
   document.getElementById('si2c').style.color='white';
-  if(window.Calendly){
-    Calendly.initInlineWidget({
-      url:'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
-      parentElement:document.getElementById('calEmbed'),
-      prefill:{name,email,customAnswers:{a1:`Hotel: ${hotel} | Phone: ${phone} | Country: ${country} | Challenges: ${pains} | Using: ${tool} | Size: ${size} | Note: ${note}`}},
-      resize:true,
-    });
-  } else {
+
+  if(!window.Calendly){
+    // Fallback: Calendly script never loaded
     document.getElementById('calEmbed').innerHTML='<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px"><p style="font-size:15px;color:#3d3d38">Click below to pick your time slot</p><a href="https://calendly.com/theresidenceconcierge/30min" target="_blank" style="padding:14px 32px;background:#1C3D2E;color:white;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none">Open calendar →</a></div>';
+    return;
   }
+
+  // If already preloaded, just update prefill via URL (re-init with real details)
+  document.getElementById('calEmbed').innerHTML='';
+  _calLoaded = false;
+  Calendly.initInlineWidget({
+    url:'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E',
+    parentElement:document.getElementById('calEmbed'),
+    prefill:{name,email,customAnswers:{a1:`Hotel: ${hotel} | Phone: ${phone} | Country: ${country} | Challenges: ${pains} | Using: ${tool} | Size: ${size} | Note: ${note}`}},
+    resize:true,
+  });
+  _calLoaded = true;
 }
 document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('demoModal').addEventListener('click',function(e){if(e.target===this)closeDemoModal()});
   document.addEventListener('change',function(e){
     if(e.target.name==='pain'){const c=document.querySelectorAll('input[name=pain]:checked');if(c.length>2)e.target.checked=false}
   });
+  // If modal is somehow open when Calendly script finally executes, kick off preload
+  window.addEventListener('calendly:ready', function(){ _preloadCalendly(); });
 });
 </script>
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
 
 </body>
 </html>
