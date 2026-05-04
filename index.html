@@ -267,8 +267,11 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   /* Stack visual above text on mobile for showcase sections */
   .showcase-text { order: 1 !important }
   .showcase-visual { order: 2 !important }
+  /* Dashboard: hide conversation on mobile, show only profile + summary */
+  .dashboard-convo { display: none !important }
+  .dashboard-grid { grid-template-columns: 1fr 220px !important }
   /* Reduce padding on showcase sections */
-  section { padding: 56px 20px !important }
+  /* section padding handled per-section */
   #before-after [style*="border-radius:2px 0 0 2px"],
   #run-numbers [style*="border-radius:2px 0 0 2px"] { border-radius:2px 2px 0 0 !important }
   #before-after [style*="border-radius:0 2px 2px 0"],
@@ -567,7 +570,7 @@ body        { font-size: 19px !important; }
         </div>
 
         <!-- Main 3-column layout -->
-        <div style="display:grid;grid-template-columns:240px 1fr 220px;background:#0d1a13;min-height:480px">
+        <div class="dashboard-grid" style="display:grid;grid-template-columns:240px 1fr 220px;background:#0d1a13;min-height:480px">
 
           <!-- LEFT: Guest profile -->
           <div style="border-right:1px solid rgba(255,255,255,0.06);padding:16px">
@@ -616,7 +619,7 @@ body        { font-size: 19px !important; }
           </div>
 
           <!-- MIDDLE: Conversation -->
-          <div style="display:flex;flex-direction:column;background:#0f1e15">
+          <div class="dashboard-convo" style="display:flex;flex-direction:column;background:#0f1e15">
             <!-- Conversation header -->
             <div style="padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center">
               <div style="font-size:11px;color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif">Conversation history · <span style="color:rgba(255,255,255,0.7)">170 messages · 11 bookings</span></div>
