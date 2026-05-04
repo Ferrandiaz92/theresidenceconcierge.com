@@ -26,7 +26,7 @@
   --green:#1C3D2E;
   --green2:#2A5A42;
   --white:#F5F2EC;
-  --muted:rgba(245,242,236,0.55);
+  --muted:rgba(245,242,236,0.75);
   --muted2:rgba(245,242,236,0.3);
   --border:rgba(201,168,76,0.18);
   --border2:rgba(245,242,236,0.08);
@@ -47,11 +47,12 @@ nav.scrolled{background:rgba(10,15,13,0.97);border-bottom-color:rgba(201,168,76,
 .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 32px rgba(201,168,76,0.35)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all 0.3s}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,15,13,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;overflow-y:auto;padding:80px 24px 40px}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,15,13,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;overflow-y:auto;padding:100px 24px 40px}
 .mobile-menu.open{display:flex}
+.mobile-menu.open .mobile-close{display:block !important}
 .mobile-menu a{font-size:20px;color:var(--white);text-decoration:none;letter-spacing:1px;padding:14px 0;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
 .mobile-menu .mobile-cta{background:var(--gold);color:var(--dark);padding:16px 48px;border-radius:4px;font-weight:600;font-size:17px;margin-top:24px;border:none;width:auto}
-.mobile-close{position:fixed;top:20px;right:20px;z-index:100;background:none;border:none;cursor:pointer;padding:8px;display:none}
+.mobile-close{position:fixed;top:20px;right:20px;z-index:100;background:none;border:none;cursor:pointer;padding:8px;display:none;color:white}
 .mobile-close svg{display:block}
 
 /* HERO */
@@ -509,7 +510,7 @@ body        { font-size: 19px !important; }
     </div>
     <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:900px;margin:0 auto">
       <div style="background:rgba(255,255,255,0.03);padding:48px 40px;border-radius:2px 0 0 2px">
-        <div style="font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:32px">Without The Residence</div>
+        <div style="font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:32px">Without The Residence Concierge</div>
         <div style="display:flex;flex-direction:column;gap:24px">
           <div style="display:flex;gap:16px;align-items:center"><span style="color:var(--muted);font-size:18px;flex-shrink:0">–</span><p style="color:var(--muted);font-size:15px;line-height:1.5;margin:0">Guest books dinner on TripAdvisor. <strong style="color:rgba(255,255,255,0.3)">€0 to the hotel.</strong></p></div>
           <div style="display:flex;gap:16px;align-items:center"><span style="color:var(--muted);font-size:18px;flex-shrink:0">–</span><p style="color:var(--muted);font-size:15px;line-height:1.5;margin:0">Unanswered message at midnight. <strong style="color:rgba(255,255,255,0.3)">Booking goes elsewhere.</strong></p></div>
@@ -518,7 +519,7 @@ body        { font-size: 19px !important; }
         </div>
       </div>
       <div style="background:rgba(28,61,46,0.35);padding:48px 40px;border-radius:0 2px 2px 0;border:1px solid rgba(201,168,76,0.15)">
-        <div style="font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:32px">With The Residence</div>
+        <div style="font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:32px">With The Residence Concierge</div>
         <div style="display:flex;flex-direction:column;gap:24px">
           <div style="display:flex;gap:16px;align-items:center"><span style="color:var(--gold);font-size:18px;flex-shrink:0">✓</span><p style="color:var(--white);font-size:15px;line-height:1.5;margin:0">Proactive dinner suggestion sent at check-in. <strong style="color:var(--gold)">+22% conversion rate.</strong></p></div>
           <div style="display:flex;gap:16px;align-items:center"><span style="color:var(--gold);font-size:18px;flex-shrink:0">✓</span><p style="color:var(--white);font-size:15px;line-height:1.5;margin:0">Instant reply, any hour, any language. <strong style="color:var(--gold)">0 missed opportunities.</strong></p></div>
