@@ -256,6 +256,14 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;text-align:center}
   .lang-strip{padding:24px 20px}
+  /* Fix inline two-column grids on mobile */
+  #before-after .two-col-grid,
+  #run-numbers .two-col-grid { grid-template-columns:1fr !important }
+  #before-after [style*="border-radius:2px 0 0 2px"],
+  #run-numbers [style*="border-radius:2px 0 0 2px"] { border-radius:2px 2px 0 0 !important }
+  #before-after [style*="border-radius:0 2px 2px 0"],
+  #run-numbers [style*="border-radius:0 2px 2px 0"] { border-radius:0 0 2px 2px !important; border-left:1px solid rgba(201,168,76,0.15) !important }
+  #run-numbers [style*="border-left:none"] { border-left:1px solid rgba(28,61,46,0.5) !important }
 }
 @media(max-width:600px){
   .steps{grid-template-columns:1fr}
@@ -493,7 +501,7 @@ body        { font-size: 19px !important; }
       <div class="section-label">The Difference</div>
       <h2 class="section-title">What changes<br>when <em>we're there.</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:900px;margin:0 auto">
+    <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:900px;margin:0 auto">
       <div style="background:rgba(255,255,255,0.03);padding:48px 40px;border-radius:2px 0 0 2px">
         <div style="font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:32px">Without The Residence</div>
         <div style="display:flex;flex-direction:column;gap:24px">
@@ -524,7 +532,7 @@ body        { font-size: 19px !important; }
       <div class="section-label">Run Your Numbers</div>
       <h2 class="section-title">What is your hotel<br><em>leaving on the table?</em></h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:960px;margin:0 auto">
+    <div class="two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;max-width:960px;margin:0 auto">
 
       <!-- LEFT: Cost of Waiting -->
       <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.15);padding:48px 44px;border-radius:2px 0 0 2px">
