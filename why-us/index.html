@@ -260,9 +260,18 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-bottom{flex-direction:column;text-align:center}
   .lang-strip{padding:24px 20px}
-  /* Fix inline two-column grids on mobile */
+  /* Fix ALL inline two-column grids on mobile */
+  .two-col-grid { grid-template-columns:1fr !important }
   #before-after .two-col-grid,
   #run-numbers .two-col-grid { grid-template-columns:1fr !important }
+  /* Stack visual above text on mobile for showcase sections */
+  .showcase-text { order: 1 !important }
+  .showcase-visual { order: 2 !important }
+  /* Reduce padding on showcase sections */
+  section { padding: 56px 20px !important }
+  /* WhatsApp phones - stack and go full width */
+  .phones-grid { grid-template-columns:1fr !important; gap:32px !important; max-width:340px !important }
+  .phone-frame { max-width:100% !important }
   #before-after [style*="border-radius:2px 0 0 2px"],
   #run-numbers [style*="border-radius:2px 0 0 2px"] { border-radius:2px 2px 0 0 !important }
   #before-after [style*="border-radius:0 2px 2px 0"],
@@ -459,13 +468,13 @@ body        { font-size: 19px !important; }
       <h2 class="section-title">What your guests see —<br><em>on WhatsApp, just like this.</em></h2>
       <p class="section-desc" style="margin:0 auto">No app to download. No portal to log into. Just a conversation that feels like a personal concierge.</p>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto" class="two-col-grid">
+    <div class="phones-grid two-col-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:900px;margin:0 auto">
 
       <!-- Phone 1: Cooking class booking -->
       <div class="reveal" style="display:flex;flex-direction:column;align-items:center">
         <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:20px;letter-spacing:1px;font-family:'DM Sans',sans-serif;text-align:center">Event Registration</div>
         <!-- Phone frame -->
-        <div style="background:#1a1a1a;border-radius:36px;padding:12px;box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.08);width:100%;max-width:280px">
+        <div class="phone-frame" style="background:#1a1a1a;border-radius:36px;padding:12px;box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.08);width:100%;max-width:280px">
           <!-- Status bar -->
           <div style="display:flex;justify-content:space-between;padding:4px 12px 8px;font-size:9px;color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif">
             <span>20:00</span><span>● ●●● 📶 🔋</span>
@@ -515,7 +524,7 @@ body        { font-size: 19px !important; }
       <div class="reveal" style="display:flex;flex-direction:column;align-items:center">
         <div style="font-size:13px;font-weight:600;color:var(--gold);margin-bottom:20px;letter-spacing:1px;font-family:'DM Sans',sans-serif;text-align:center">Local Recommendation</div>
         <!-- Phone frame -->
-        <div style="background:#1a1a1a;border-radius:36px;padding:12px;box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.08);width:100%;max-width:280px">
+        <div class="phone-frame" style="background:#1a1a1a;border-radius:36px;padding:12px;box-shadow:0 32px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.08);width:100%;max-width:280px">
           <div style="display:flex;justify-content:space-between;padding:4px 12px 8px;font-size:9px;color:rgba(255,255,255,0.5);font-family:'DM Sans',sans-serif">
             <span>23:00</span><span>● ●●● 📶 🔋</span>
           </div>
