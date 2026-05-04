@@ -268,7 +268,7 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   .showcase-text { order: 1 !important }
   .showcase-visual { order: 2 !important }
   /* Reduce padding on showcase sections */
-  section { padding: 56px 20px !important }
+  /* section padding handled per-section */
   /* Referrals stat grid - 2 cols on mobile */
   .referrals-stats { grid-template-columns:1fr 1fr !important }
   /* Referrals table - hide columns */
@@ -446,7 +446,7 @@ body        { font-size: 19px !important; }
 </div>
 
 <!-- HERO BANNER 3 -->
-<section style="background:var(--dark);padding:120px 40px 0;overflow:hidden">
+<section style="background:var(--dark);padding:130px 40px 0;overflow:hidden">
   <div class="container">
     <!-- Centered text -->
     <div style="text-align:center;margin-bottom:64px">
@@ -830,16 +830,7 @@ body        { font-size: 19px !important; }
 
 
 
-<!-- PILL NAV BLOCK -->
-<section style="background:var(--dark2);padding:56px 40px;text-align:center">
-  <div class="container">
-    <p style="font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">Ready to see it in action?</p>
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-      <a href="/why-us/" style="display:inline-block;padding:12px 28px;border:1px solid var(--gold);border-radius:40px;color:var(--gold);font-size:15px;font-weight:500;text-decoration:none;letter-spacing:0.5px;transition:all 0.2s" onmouseover="this.style.background='var(--gold)';this.style.color='var(--dark)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">Our Philosophy →</a>
-      <a href="/platform/" style="display:inline-block;padding:12px 28px;border:1px solid var(--gold);border-radius:40px;color:var(--gold);font-size:15px;font-weight:500;text-decoration:none;letter-spacing:0.5px;transition:all 0.2s" onmouseover="this.style.background='var(--gold)';this.style.color='var(--dark)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">The Toolkit →</a>
-    </div>
-  </div>
-</section>
+
 
 <!-- CTA / CONTACT -->
 <section id="contact">
