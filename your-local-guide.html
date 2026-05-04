@@ -8,7 +8,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--gold:#C9A84C;--green:#1C3D2E;--cream:#F5F2EC;--dark:#1a1a18;--muted:#6e6a60;--border:rgba(28,61,46,0.1)}
+:root{--gold:#C9A84C;--green:#1C3D2E;--cream:#F5F2EC;--dark:#1a1a18;--muted:#3d3a34;--border:rgba(28,61,46,0.1)}
 html{scroll-behavior:smooth}
 body{background:var(--cream);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased}
 .hotel-header{background:var(--green);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
@@ -38,8 +38,8 @@ body{background:var(--cream);font-family:'DM Sans',sans-serif;-webkit-font-smoot
 .card-body{padding:9px 11px 11px;display:flex;flex-direction:column;flex:1}
 .card-name{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;color:var(--dark);line-height:1.2;margin-bottom:3px}
 @media(min-width:768px){.card-name{font-size:18px}}
-.card-area{font-size:10px;color:#AAA398;margin-bottom:4px}
-.card-desc{font-size:10.5px;color:var(--muted);line-height:1.5;flex:1;margin-bottom:5px}
+.card-area{font-size:12px;color:#7a7470;margin-bottom:4px}
+.card-desc{font-size:12px;color:var(--muted);line-height:1.5;flex:1;margin-bottom:5px}
 .card-popular{font-size:10px;color:#A8832A;font-weight:500;margin-bottom:6px}
 .card-cta{width:100%;padding:8px 10px;border-radius:10px;font-size:10.5px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:default;margin-top:auto}
 @media(min-width:768px){.card-cta{font-size:12px;padding:10px 12px}}
@@ -51,7 +51,7 @@ body{background:var(--cream);font-family:'DM Sans',sans-serif;-webkit-font-smoot
 .promo-eyebrow{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;position:relative}
 .promo-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,5.5vw,56px);font-weight:300;color:white;line-height:1.08;margin-bottom:14px;position:relative}
 .promo-title em{font-style:italic;color:var(--gold)}
-.promo-sub{font-size:14px;color:rgba(255,255,255,0.65);line-height:1.8;max-width:520px;margin:0 auto 32px;position:relative}
+.promo-sub{font-size:17px;color:rgba(255,255,255,0.9);line-height:1.8;max-width:520px;margin:0 auto 32px;position:relative}
 .promo-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
 .btn-primary{padding:13px 28px;background:var(--gold);color:var(--dark);border:none;border-radius:10px;font-size:14px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
 .btn-primary:hover{background:#E8C96A;transform:translateY(-1px)}
@@ -60,20 +60,20 @@ body{background:var(--cream);font-family:'DM Sans',sans-serif;-webkit-font-smoot
 .guide-intro{padding:28px 20px 8px;text-align:center}
 @media(min-width:768px){.guide-intro{padding:36px 40px 12px;max-width:1100px;margin:0 auto}}
 .guide-intro-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,30px);font-weight:300;color:var(--dark);margin-bottom:6px;line-height:1.2}
-.guide-intro-sub{font-size:13px;color:var(--muted);line-height:1.75;max-width:500px;margin:0 auto}
-.revenue-bar{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:12px;margin:16px 16px 0;padding:14px 18px;display:flex;align-items:center;gap:12px;font-size:13px;color:var(--dark);line-height:1.6}
+.guide-intro-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:500px;margin:0 auto}
+.revenue-bar{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);border-radius:12px;margin:16px 16px 0;padding:14px 18px;display:flex;align-items:center;gap:12px;font-size:15px;color:var(--dark);line-height:1.6}
 @media(min-width:768px){.revenue-bar{max-width:1100px;margin:20px auto 0}}
 .revenue-bar-icon{font-size:20px;flex-shrink:0}
 .bottom-cta{background:var(--green);padding:40px 20px;text-align:center;margin-top:24px}
 .bottom-cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3.5vw,38px);font-weight:300;color:white;margin-bottom:8px;line-height:1.15}
 .bottom-cta-title em{font-style:italic;color:var(--gold)}
-.bottom-cta-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:24px;line-height:1.7}
+.bottom-cta-sub{font-size:16px;color:rgba(255,255,255,0.85);margin-bottom:24px;line-height:1.7}
 .bottom-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 .bottom-brand{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:300;color:rgba(255,255,255,0.3);margin-top:24px;letter-spacing:1px}
 </style></head><body>
 <div class="hotel-header">
   <div><div class="hotel-name">The Residence Concierge</div></div>
-  <a href="https://theresidenceconcierge.com" style="font-size:11px;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:.3px;">theresidenceconcierge.com</a>
+  <a href="https://theresidenceconcierge.com" style="font-size:13px;color:rgba(255,255,255,0.9);font-weight:500;text-decoration:none;letter-spacing:.3px;">theresidenceconcierge.com</a>
 </div>
 <div class="promo-hero">
   <div class="promo-eyebrow">The Residence Concierge · Feature Spotlight</div>
