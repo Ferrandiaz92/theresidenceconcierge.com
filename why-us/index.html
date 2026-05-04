@@ -47,10 +47,12 @@ nav.scrolled{background:rgba(10,15,13,0.97);border-bottom-color:rgba(201,168,76,
 .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);box-shadow:0 8px 32px rgba(201,168,76,0.35)}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all 0.3s}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,15,13,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,15,13,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;overflow-y:auto;padding:80px 24px 40px}
 .mobile-menu.open{display:flex}
-.mobile-menu a{font-size:22px;color:var(--white);text-decoration:none;letter-spacing:1px}
-.mobile-menu .mobile-cta{background:var(--gold);color:var(--dark);padding:16px 48px;border-radius:4px;font-weight:600;font-size:17px;margin-top:8px}
+.mobile-menu a{font-size:20px;color:var(--white);text-decoration:none;letter-spacing:1px;padding:14px 0;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-menu .mobile-cta{background:var(--gold);color:var(--dark);padding:16px 48px;border-radius:4px;font-weight:600;font-size:17px;margin-top:24px;border:none;width:auto}
+.mobile-close{position:fixed;top:20px;right:20px;z-index:100;background:none;border:none;cursor:pointer;padding:8px;display:none}
+.mobile-close svg{display:block}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 40px 80px;text-align:center}
@@ -420,6 +422,9 @@ body        { font-size: 19px !important; }
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" onclick="toggleMenu()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <a href="/#before-after" onclick="toggleMenu()">Our Impact</a>
   <a href="/#run-numbers" onclick="toggleMenu()">Run Your Numbers</a>
   <a href="/#how" onclick="toggleMenu()">How It Works</a>
@@ -636,7 +641,10 @@ window.addEventListener('scroll',()=>{
 
 // Mobile menu
 function toggleMenu(){
-  document.getElementById('mobileMenu').classList.toggle('open')
+  const menu = document.getElementById('mobileMenu');
+  const close = document.getElementById('mobileClose');
+  menu.classList.toggle('open');
+  if(close) close.style.display = menu.classList.contains('open') ? 'block' : 'none';
 }
 
 // Reveal on scroll
