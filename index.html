@@ -725,6 +725,12 @@ body        { font-size: 19px !important; }
       <div style="position:absolute;bottom:0;left:0;right:0;height:80px;background:linear-gradient(to bottom,transparent,var(--dark2));pointer-events:none;z-index:2;border-radius:0 0 14px 14px"></div>
     </div>
   </div>
+
+  <!-- Our Solution CTA -->
+  <div class="reveal" style="text-align:center;margin-top:56px">
+    <p style="font-size:18px;color:var(--muted);margin-bottom:24px">Every message is an opportunity. We make sure it becomes one.</p>
+    <a href="/our-solution/" style="display:inline-block;background:var(--gold);color:var(--dark);border-radius:4px;padding:16px 40px;font-size:16px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;box-shadow:0 4px 24px rgba(201,168,76,0.3);transition:all 0.2s" onmouseover="this.style.background='var(--gold-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='none'">See Our Solution →</a>
+  </div>
 </section>
 <!-- RUN YOUR NUMBERS -->
 <section id="run-numbers" style="background:var(--dark)">
@@ -808,11 +814,16 @@ body        { font-size: 19px !important; }
       </div>
     </div>
   </div>
+
+  <!-- Our Solution CTA -->
+  <div class="reveal" style="text-align:center;margin-top:56px;padding:0 40px">
+    <p style="font-size:18px;color:var(--muted);margin-bottom:24px">Ready to capture this revenue before guests look elsewhere?</p>
+    <a href="/our-solution/" style="display:inline-block;background:var(--gold);color:var(--dark);border-radius:4px;padding:16px 40px;font-size:16px;font-weight:600;text-decoration:none;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;box-shadow:0 4px 24px rgba(201,168,76,0.3);transition:all 0.2s" onmouseover="this.style.background='var(--gold-light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--gold)';this.style.transform='none'">See Our Solution →</a>
+  </div>
 </section>
 
 <script>
 function calcRevenue() {
-  if (!document.getElementById('calc-instay')) return;
   const instay = parseFloat(document.getElementById('calc-instay').value) || 0;
   const day = parseFloat(document.getElementById('calc-day').value) || 0;
   const facility = parseFloat(document.getElementById('calc-facility').value) || 0;
