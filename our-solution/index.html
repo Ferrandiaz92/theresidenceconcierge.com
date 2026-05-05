@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Solution — The Residence Concierge</title>
+<meta name="description" content="Own the guest journey before arrival. How The Residence Concierge captures guest intent early, drives revenue through local experiences, and builds your partner ecosystem.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Our Solution — The Residence Concierge">
+<meta property="og:description" content="Guests are planning their stay the moment they book. If you're not their first source of trust, someone else is.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theresidenceconcierge.com/our-solution/">
+<link rel="canonical" href="https://theresidenceconcierge.com/our-solution/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzFDM0QyRSIvPgogIDx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSJib2xkIiAKICAgICAgICBmaWxsPSIjQzlBODRDIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SPC90ZXh0Pgo8L3N2Zz4K">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8C96A;
+  --gold-dim:rgba(201,168,76,0.15);
+  --dark:#0A0F0D;
+  --dark2:#0f1a14;
+  --green-mid:#132318;
+  --green:#1C3D2E;
+  --green2:#2A5A42;
+  --white:#F5F2EC;
+  --muted:rgba(245,242,236,0.75);
+  --muted2:rgba(245,242,236,0.3);
+  --border:rgba(201,168,76,0.18);
+  --border2:rgba(245,242,236,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--white);overflow-x:hidden;line-height:1.8;font-size:18px}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:1000}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 40px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(10,15,13,0.95),transparent);backdrop-filter:blur(8px);border-bottom:1px solid rgba(201,168,76,0.08);transition:all 0.3s}
+nav.scrolled{background:rgba(10,15,13,0.97);border-bottom-color:rgba(201,168,76,0.15)}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;letter-spacing:2px;color:var(--white);text-decoration:none;display:flex;flex-direction:column;line-height:1.1}
+.nav-logo span{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:2px}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:16px;color:var(--muted);text-decoration:none;letter-spacing:0.5px;transition:color 0.2s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{background:var(--gold);color:var(--dark);border:none;border-radius:4px;padding:12px 28px;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;transition:all 0.2s;text-decoration:none;box-shadow:0 4px 20px rgba(201,168,76,0.25);white-space:nowrap}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all 0.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,15,13,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;overflow-y:auto;padding:100px 24px 40px}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:20px;color:var(--white);text-decoration:none;letter-spacing:1px;padding:14px 0;width:100%;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+.mobile-menu .mobile-cta{background:var(--gold);color:var(--dark);padding:16px 48px;border-radius:4px;font-weight:600;font-size:17px;margin-top:24px;border:none;width:auto}
+.mobile-close{position:fixed;top:20px;right:20px;z-index:100;background:none;border:none;cursor:pointer;padding:8px;display:none;color:white}
+.mobile-close svg{display:block}
+
+/* HERO */
+.hero{min-height:85vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:120px 40px 80px;text-align:center;background:linear-gradient(to bottom,var(--dark),var(--green-mid))}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(28,61,46,0.5) 0%,transparent 55%),radial-gradient(ellipse at 80% 30%,rgba(201,168,76,0.06) 0%,transparent 50%)}
+.hero-content{position:relative;z-index:1;max-width:860px}
+.hero-eyebrow{font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 0.8s ease 0.2s forwards}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,72px);font-weight:300;line-height:1.05;letter-spacing:-1px;margin-bottom:28px;opacity:0;animation:fadeUp 0.8s ease 0.4s forwards}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:20px;color:var(--muted);max-width:600px;margin:0 auto 48px;line-height:1.85;opacity:0;animation:fadeUp 0.8s ease 0.6s forwards}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s ease 0.8s forwards}
+.btn-primary{background:var(--gold);color:var(--dark);border:none;border-radius:4px;padding:16px 36px;font-size:16px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;transition:all 0.2s;text-decoration:none;box-shadow:0 4px 24px rgba(201,168,76,0.3)}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:var(--white);border:1px solid var(--border);border-radius:4px;padding:16px 36px;font-size:16px;font-weight:400;cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:0.5px;transition:all 0.2s;text-decoration:none}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+section{padding:100px 40px}
+.container{max-width:1080px;margin:0 auto}
+.section-label{font-size:13px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,56px);font-weight:300;line-height:1.1;margin-bottom:20px}
+.section-title em{font-style:italic;color:var(--gold)}
+.section-desc{font-size:20px;color:var(--muted);max-width:680px;line-height:1.85}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ACT 1 — THE SHIFT */
+#act1{background:var(--green-mid)}
+.shift-statement{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,44px);font-weight:300;line-height:1.3;max-width:800px;margin:48px auto 0;text-align:center;font-style:italic;color:var(--white)}
+.shift-statement em{color:var(--gold);font-style:italic}
+.loss-callout{margin:56px auto 0;max-width:680px;border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:40px 48px;background:rgba(201,168,76,0.04);text-align:center}
+.loss-callout p{font-size:19px;color:var(--muted);line-height:1.85}
+.loss-callout strong{color:var(--white);font-weight:600}
+.loss-label{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:rgba(255,100,100,0.7);margin-top:16px;display:block}
+
+/* ACT 2 — PRE-ARRIVAL */
+#act2{background:var(--dark2)}
+.wa-demo{max-width:480px;margin:48px auto 0;background:rgba(245,242,236,0.03);border:1px solid var(--border2);border-radius:12px;padding:32px;position:relative}
+.wa-demo::before{content:'WhatsApp · Your Hotel';font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(37,211,102,0.7);display:block;margin-bottom:20px}
+.wa-msg{padding:14px 18px;border-radius:12px;margin-bottom:12px;font-size:17px;line-height:1.65}
+.wa-msg.hotel{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.15);border-bottom-left-radius:3px;max-width:85%}
+.wa-msg.guest{background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.15);border-bottom-right-radius:3px;max-width:85%;margin-left:auto;text-align:right}
+.outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.outcome-card{background:rgba(245,242,236,0.02);border:1px solid var(--border2);padding:40px 36px;transition:all 0.3s;position:relative;overflow:hidden}
+.outcome-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,var(--gold-dim),transparent);opacity:0;transition:opacity 0.3s}
+.outcome-card:hover{background:rgba(245,242,236,0.04)}
+.outcome-card:hover::before{opacity:1}
+.outcome-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--gold);opacity:0.4;line-height:1;margin-bottom:12px}
+.outcome-title{font-size:20px;font-weight:600;margin-bottom:12px;letter-spacing:0.2px}
+.outcome-desc{font-size:18px;color:var(--muted);line-height:1.85}
+.key-line{margin-top:56px;padding:32px 40px;border-left:2px solid var(--gold);background:rgba(201,168,76,0.04);font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,30px);font-style:italic;font-weight:300;color:var(--white);line-height:1.5}
+
+/* ACT 3 — LOCAL GUIDE */
+#act3{background:var(--dark);overflow:hidden}
+.guide-intro{font-size:20px;color:var(--muted);max-width:680px;line-height:1.85;margin-bottom:16px}
+.guide-note{font-size:16px;color:var(--gold);font-style:italic;margin-bottom:56px}
+
+/* Experience cards */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.fpill{font-size:14px;font-weight:500;padding:7px 16px;border-radius:20px;border:1px solid rgba(245,242,236,0.12);color:var(--muted);cursor:pointer;transition:all 0.2s;background:transparent}
+.fpill:hover{border-color:var(--gold);color:var(--gold)}
+.fpill.active{background:var(--green);border-color:var(--green);color:var(--white)}
+
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.2s,box-shadow 0.2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.3)}
+.card-img-wrap{position:relative;height:175px;overflow:hidden;flex-shrink:0}
+.card-img{width:100%;height:100%;object-fit:cover;object-position:center}
+.card-cat-badge{position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;padding:3px 8px;border-radius:12px;letter-spacing:.3px}
+.card-body{padding:14px 14px 16px;display:flex;flex-direction:column;flex:1}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#1a1a18;line-height:1.2;margin-bottom:4px}
+.card-area{font-size:12px;color:#7a7470;margin-bottom:6px}
+.card-desc{font-size:13px;color:#4a4a44;line-height:1.55;flex:1;margin-bottom:8px}
+.card-popular{font-size:11px;color:#A8832A;font-weight:500;margin-bottom:8px}
+.card-cta{width:100%;padding:10px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:opacity 0.2s;border:none}
+.card-cta:hover{opacity:0.88}
+
+/* ACT 4 — PARTNER ECOSYSTEM */
+#act4{background:var(--green-mid)}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.partner-card{background:rgba(245,242,236,0.03);border:1px solid var(--border2);padding:40px 36px;transition:all 0.3s}
+.partner-card:hover{background:rgba(245,242,236,0.06)}
+.partner-icon{font-size:28px;margin-bottom:20px;display:block}
+.partner-title{font-size:20px;font-weight:600;margin-bottom:10px}
+.partner-desc{font-size:17px;color:var(--muted);line-height:1.8}
+.revenue-callout{margin-top:56px;background:rgba(201,168,76,0.06);border:1px solid var(--border);border-radius:4px;padding:48px;text-align:center}
+.revenue-callout h3{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,42px);font-weight:300;margin-bottom:16px}
+.revenue-callout h3 em{font-style:italic;color:var(--gold)}
+.revenue-callout p{font-size:19px;color:var(--muted);max-width:580px;margin:0 auto;line-height:1.85}
+
+/* CLOSING */
+#closing{background:var(--dark2)}
+.system-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:64px;position:relative}
+.system-steps::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:1px;background:linear-gradient(to right,transparent,var(--border),var(--border),transparent);pointer-events:none}
+.sys-step{text-align:center;padding:0 20px;position:relative}
+.sys-num{width:56px;height:56px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--gold);background:var(--dark2);position:relative;z-index:1}
+.sys-title{font-size:17px;font-weight:600;margin-bottom:10px;letter-spacing:0.2px}
+.sys-desc{font-size:16px;color:var(--muted);line-height:1.75}
+.closing-line{text-align:center;margin-top:64px;font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,28px);font-weight:300;font-style:italic;color:var(--muted)}
+.closing-line em{color:var(--gold);font-style:italic}
+
+/* CTA */
+#contact{background:linear-gradient(135deg,var(--green) 0%,var(--dark2) 60%,var(--dark) 100%);position:relative;overflow:hidden;text-align:center;padding:100px 40px}
+#contact::before{content:'';position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,0.06),transparent 70%);pointer-events:none}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4.5vw,62px);font-weight:300;line-height:1.1;margin-bottom:20px}
+.cta-title em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:19px;color:var(--muted);max-width:560px;margin:0 auto 40px;line-height:1.85}
+.cta-note{font-size:15px;color:var(--muted2);margin-top:20px}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 40px 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1080px;margin:0 auto;padding-bottom:40px;border-bottom:1px solid var(--border2)}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:2px;margin-bottom:12px}
+.footer-logo span{display:block;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.footer-desc{font-size:16px;color:var(--muted);line-height:1.7;max-width:280px}
+.footer-col-title{font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:16px;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;max-width:1080px;margin:0 auto;flex-wrap:wrap;gap:12px}
+.footer-copy{font-size:14px;color:var(--muted2)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal a{font-size:14px;color:var(--muted2);text-decoration:none;transition:color 0.2s}
+.footer-legal a:hover{color:var(--white)}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 20px 13px 16px;border-radius:50px;box-shadow:0 4px 24px rgba(37,211,102,0.35);text-decoration:none;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:0.3px;transition:all 0.25s;animation:waFloat 0.6s ease 1.5s both}
+.wa-float:hover{background:#20c05a;transform:translateY(-2px)}
+.wa-float svg{width:22px;height:22px;fill:white;flex-shrink:0}
+@keyframes waFloat{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* DEMO MODAL */
+#demoModal{display:none;position:fixed;inset:0;z-index:10000;background:rgba(10,15,13,0.85);backdrop-filter:blur(8px);align-items:flex-start;justify-content:center;padding:20px;overflow-y:auto}
+#demoModal.open{display:flex}
+.dm-box{background:#fff;border-radius:16px;width:100%;max-width:520px;margin:auto;overflow:hidden;display:flex;flex-direction:column;max-height:92vh}
+.dm-header{background:#1C3D2E;padding:20px 24px 16px;flex-shrink:0}
+.dm-steps{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.dm-step-circle{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.dm-step-line{flex:1;height:1px;background:rgba(255,255,255,0.2)}
+.dm-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:white;letter-spacing:0.5px}
+.dm-sub{font-size:13px;color:rgba(245,242,236,0.7);margin-top:2px}
+.dm-close{position:absolute;top:16px;right:20px;background:rgba(255,255,255,0.1);border:none;color:white;border-radius:50%;width:30px;height:30px;font-size:18px;line-height:28px;text-align:center;cursor:pointer;font-family:'DM Sans',sans-serif}
+.dm-body{padding:20px 24px;overflow-y:auto;flex:1}
+.dm-field-label{display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:5px;letter-spacing:0.3px}
+.dm-input{width:100%;padding:10px 13px;border:1.5px solid #E5E7EB;border-radius:8px;font-size:14px;font-family:'DM Sans',sans-serif;color:#1a1a18;background:#FAFAFA;transition:border-color 0.2s;outline:none}
+.dm-input:focus{border-color:#1C3D2E;background:#fff}
+.dm-label{display:block;font-size:12px;font-weight:600;color:#374151;margin-bottom:8px;letter-spacing:0.3px}
+.dm-pill{display:flex;align-items:center;gap:6px;padding:7px 13px;border:1.5px solid #E5E7EB;border-radius:20px;cursor:pointer;font-size:13px;color:#4B5563;transition:all 0.2s;user-select:none}
+.dm-pill:hover{border-color:#1C3D2E;color:#1C3D2E}
+.dm-pill input{display:none}
+.dm-pill.selected,.dm-pill:has(input:checked){background:#1C3D2E;border-color:#1C3D2E;color:white}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:16px 24px}
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .system-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+  .system-steps::before{display:none}
+  .cards-grid{grid-template-columns:repeat(2,1fr)}
+  .partner-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  section{padding:72px 24px}
+  .hero{padding:100px 24px 60px}
+  .outcome-grid{grid-template-columns:1fr}
+  .cards-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .partner-grid{grid-template-columns:1fr}
+  .system-steps{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .key-line{padding:24px 28px}
+  .loss-callout{padding:28px 24px}
+  .revenue-callout{padding:32px 24px}
+  .wa-float{padding:13px 16px;border-radius:50%;bottom:20px;right:20px}
+  .wa-float span{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">
+    <span>WhatsApp Concierge</span>
+    The Residence Concierge
+  </a>
+  <div class="nav-links">
+    <a href="/#before-after">Our Impact</a>
+    <a href="/our-solution/" class="active">Our Solution</a>
+    <a href="/why-us/">Our Philosophy</a>
+    <a href="/platform/">The Toolkit</a>
+    <a href="/#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta" onclick="openDemoModal();return false;">Request a Demo</a>
+  <div class="nav-hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose" onclick="toggleMenu()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <a href="/#before-after" onclick="toggleMenu()">Our Impact</a>
+  <a href="/our-solution/" onclick="toggleMenu()">Our Solution</a>
+  <a href="/why-us/" onclick="toggleMenu()">Our Philosophy</a>
+  <a href="/platform/" onclick="toggleMenu()">The Toolkit</a>
+  <a href="/#contact" onclick="toggleMenu()">Contact</a>
+  <a href="/#contact" class="mobile-cta" onclick="toggleMenu();openDemoModal();return false;">Request a Demo</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Our Solution</div>
+    <h1 class="hero-title">Own the Guest Journey<br><em>Before Arrival</em></h1>
+    <p class="hero-sub">Guests are planning their stay the moment they book. If you're not their first source of trust, the booking decisions are already made without you.</p>
+    <div class="hero-btns">
+      <a href="#act2" class="btn-primary">See How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 1 — THE SHIFT -->
+<section id="act1">
+  <div class="container">
+    <div class="section-label reveal">The Problem</div>
+    <h2 class="section-title reveal">Revenue lost before<br>they even <em>arrive</em></h2>
+
+    <p class="shift-statement reveal">
+      A guest confirms their booking.<br>
+      Then plans <em>everything</em> elsewhere.
+    </p>
+
+    <div class="loss-callout reveal">
+      <p>
+        Transfers. Restaurants. Experiences.<br>
+        All decided before check-in — without the hotel.
+      </p>
+      <span class="loss-label">By the time they arrive, the revenue is already gone.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ACT 2 — PRE-ARRIVAL OWNERSHIP -->
+<section id="act2">
+  <div class="container">
+    <div class="section-label reveal">The Solution</div>
+    <h2 class="section-title reveal">Be the <em>first voice</em><br>your guest hears</h2>
+
+    <div class="wa-demo reveal">
+      <div class="wa-msg hotel">Welcome. I'm your hotel concierge — here before you arrive, throughout your stay, and after checkout. Can I help you plan your visit? 🌿</div>
+      <div class="wa-msg guest">Yes! We arrive Thursday. Looking for a restaurant and maybe a boat trip?</div>
+      <div class="wa-msg hotel">Perfect — I have the right table for Thursday evening and a sunset catamaran with availability. Shall I arrange both?</div>
+    </div>
+
+    <div class="outcome-grid">
+      <div class="outcome-card reveal">
+        <div class="outcome-num">01</div>
+        <div class="outcome-title">You become the first decision point</div>
+        <div class="outcome-desc">Before they open Google, before they ask anyone else — your hotel is already in conversation. That's where trust is built, and where decisions are made.</div>
+      </div>
+      <div class="outcome-card reveal">
+        <div class="outcome-num">02</div>
+        <div class="outcome-title">You convert intent into bookings</div>
+        <div class="outcome-desc">Every question is a booking opportunity. Restaurants, experiences, transfers — all arranged through your concierge, all tracked, all generating revenue for your hotel.</div>
+      </div>
+      <div class="outcome-card reveal">
+        <div class="outcome-num">03</div>
+        <div class="outcome-title">The guest never needs to look elsewhere</div>
+        <div class="outcome-desc">Your concierge knows the bus times, the hidden restaurant, the sold-out event that still has tickets. No search engine comes close. One source. Yours.</div>
+      </div>
+    </div>
+
+    <div class="key-line reveal">
+      "If you don't guide your guests early, someone else will."
+    </div>
+  </div>
+</section>
+
+<!-- ACT 3 — THE LOCAL GUIDE -->
+<section id="act3">
+  <div class="container">
+    <div class="section-label reveal">The Local Guide</div>
+    <h2 class="section-title reveal">A curated guide to your city —<br>not <em>search results</em></h2>
+    <p class="guide-intro reveal">Your concierge recommends and books experiences guests actually want — filtered by preference, available in real time, arranged instantly. Sunset cruises. Wine tours. Diving. Dining. Wellness. Events.</p>
+    <p class="guide-note reveal">Not search results — real availability, real recommendations, real revenue.</p>
+
+    <div class="filters reveal" id="filters">
+      <div class="fpill active" data-cat="all">All</div>
+      <div class="fpill" data-cat="boat">⛵ Boat</div>
+      <div class="fpill" data-cat="wine">🍷 Wine</div>
+      <div class="fpill" data-cat="diving">🤿 Diving</div>
+      <div class="fpill" data-cat="activity">🐴 Activities</div>
+      <div class="fpill" data-cat="wellness">💆 Wellness</div>
+      <div class="fpill" data-cat="dining">🍽️ Dining</div>
+      <div class="fpill" data-cat="culture">🏛️ Culture</div>
+      <div class="fpill" data-cat="landmark">🌊 Landmarks</div>
+    </div>
+
+    <div class="cards-grid reveal" id="cardsGrid">
+
+      <div class="card" data-cat="boat">
+        <div class="card-img-wrap">
+          <img loading="lazy" src="../images/guide-img-1.webp" alt="Sunset Catamaran Cruise" class="card-img">
+          <div class="card-cat-badge" style="background:#E0F2FE;color:#0369A1">⛵ Boat Tour</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Sunset Catamaran Cruise</div>
+          <div class="card-area">📍 Limassol · Mediterranean Sea</div>
+          <div class="card-desc">Sail into the golden hour on a private catamaran along the Cyprus coastline. Swim stops, fresh fruit, and the most memorable sunset of your stay.</div>
+          <div class="card-popular">⭐ Most requested by guests</div>
+          <button class="card-cta" style="background:#1C3D2E;color:white">💬 Ask concierge to book</button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="wine">
+        <div class="card-img-wrap">
+          <img loading="lazy" src="../images/guide-img-2.webp" alt="Troodos Wine Villages Tour" class="card-img">
+          <div class="card-cat-badge" style="background:#FFF7ED;color:#7C2D12">🍷 Winery</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Troodos Wine Villages Tour</div>
+          <div class="card-area">📍 Troodos Mountains · 45 min drive</div>
+          <div class="card-desc">Discover the ancient Commandaria wine region — tastings at family wineries, meze lunch in a traditional village, and breathtaking mountain views.</div>
+          <div class="card-popular">⭐ Half-day · Private driver available</div>
+          <button class="card-cta" style="background:#1C3D2E;color:white">💬 Ask concierge to book</button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="diving">
+        <div class="card-img-wrap">
+          <img loading="lazy" src="../images/guide-img-4.webp" alt="Zenobia Wreck Dive" class="card-img">
+          <div class="card-cat-badge" style="background:#E0F2FE;color:#0369A1">🤿 Diving</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Zenobia Wreck Dive</div>
+          <div class="card-area">📍 Larnaca · 45 min drive</div>
+          <div class="card-desc">Dive the Zenobia — one of the top ten wreck dives in the world. A Swedish ferry resting 42m below the surface, teeming with marine life.</div>
+          <div class="card-popular">⭐ Rated top dive site in the Mediterranean</div>
+          <button class="card-cta" style="background:#1C3D2E;color:white">💬 Ask concierge to book</button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="activity">
+        <div class="card-img-wrap">
+          <img loading="lazy" src="../images/guide-img-5.webp" alt="Horse Riding at Sunset" class="card-img">
+          <div class="card-cat-badge" style="background:#ECFDF5;color:#065F46">🐴 Activity</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Horse Riding at Sunset</div>
+          <div class="card-area">📍 Limassol · 20 min drive</div>
+          <div class="card-desc">Ride through scenic trails and along the coastline as the sun sets over the Mediterranean. Suitable for all experience levels.</div>
+          <div class="card-popular">⭐ Families & couples favourite</div>
+          <button class="card-cta" style="background:#1C3D2E;color:white">💬 Ask concierge to book</button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="wellness">
+        <div class="card-img-wrap">
+          <img loading="lazy" src="../images/guide-img-6.webp" alt="Wellness & Spa Retreat" class="card-img">
+          <div class="card-cat-badge" style="background:#F5F3FF;color:#5B21B6">💆 Wellness</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Wellness & Spa Retreat</div>
+          <div class="card-area">📍 Limassol · Partner Spa</div>
+          <div class="card-desc">A full day of restoration — massages, thermal pools, aromatherapy, and detox treatments. Let the concierge arrange everything, including transport.</div>
+          <div class="card-popular">⭐ Popular with guests staying 3+ nights</div>
+          <button class="card-cta" style="background:#1C3D2E;color:white">💬 Ask concierge to book</button>
+        </div>
+      </div>
+
+      <div class="card" data-cat="dining">
+        <div class="card-img-wrap">
+          <img loading="lazy" src="../images/guide-img-7.webp" alt="Traditional Cyprus Tavern" class="card-img">
+          <div class="card-cat-badge" style="background:#FEF9C3;color:#713F12">🍽️ Dining</div>
+        </div>
+        <div class="card-body">
+          <div class="card-name">Traditional Cyprus Tavern</div>
+          <div class="card-area">📍 Limassol Old Town · 10 min</div>
+          <div class="card-desc">A real meze experience — kleftiko, halloumi, koupepia, and a table that never empties. The kind of dinner guests talk about for years.</div>
+          <div class="card-popular">⭐ Reservation recommended · concierge can arrange</div>
+          <button class="card-cta" style="background:#1C3D2E;color:white">💬 Ask concierge to book</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACT 4 — PARTNER ECOSYSTEM -->
+<section id="act4">
+  <div class="container">
+    <div class="section-label reveal">The Partner Ecosystem</div>
+    <h2 class="section-title reveal">Every guest recommendation becomes<br>a <em>monetisable booking</em></h2>
+    <p class="section-desc reveal">Hotels can build their own curated partner ecosystem — inviting trusted local businesses into the platform. Every guest interaction becomes a revenue opportunity that stays with you.</p>
+
+    <div class="partner-grid">
+      <div class="partner-card reveal">
+        <span class="partner-icon">🍽️</span>
+        <div class="partner-title">Restaurants & Dining</div>
+        <div class="partner-desc">Your recommended restaurants get direct reservations through the concierge. No OTA, no third party. Just your guest, your partner, your commission.</div>
+      </div>
+      <div class="partner-card reveal">
+        <span class="partner-icon">⛵</span>
+        <div class="partner-title">Tours & Experiences</div>
+        <div class="partner-desc">Boat tours, wine tastings, cooking classes, cultural trips. Curated by you, bookable instantly, tracked automatically.</div>
+      </div>
+      <div class="partner-card reveal">
+        <span class="partner-icon">🚗</span>
+        <div class="partner-title">Transfers & Taxis</div>
+        <div class="partner-desc">Airport transfers, day trips, private drivers. Your trusted partners get the booking — your hotel earns the commission.</div>
+      </div>
+      <div class="partner-card reveal">
+        <span class="partner-icon">💆</span>
+        <div class="partner-title">Spas & Wellness</div>
+        <div class="partner-desc">Partner spas and wellness centres gain visibility through your concierge. Guests book with confidence — they trust your recommendation.</div>
+      </div>
+      <div class="partner-card reveal">
+        <span class="partner-icon">🏍️</span>
+        <div class="partner-title">Rental Cars & Bikes</div>
+        <div class="partner-desc">Freedom to explore is something every guest wants. Your mobility partners are ready — the concierge connects them seamlessly.</div>
+      </div>
+      <div class="partner-card reveal">
+        <span class="partner-icon">🎭</span>
+        <div class="partner-title">Events & Activities</div>
+        <div class="partner-desc">Local events, festival tickets, guided tours. The kind of insider knowledge that makes guests feel genuinely looked after.</div>
+      </div>
+    </div>
+
+    <div class="revenue-callout reveal">
+      <h3>Unlock a New Revenue Stream From Your <em>Local Network</em></h3>
+      <p>Turn your curated partner ecosystem into recurring annual revenue — while enhancing every guest experience and reducing OTA dependency.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING — THE FULL SYSTEM -->
+<section id="closing">
+  <div class="container">
+    <div class="section-label reveal" style="text-align:center">The Full System</div>
+    <h2 class="section-title reveal" style="text-align:center;max-width:680px;margin:0 auto 20px">Four stages. One <em>connected</em> journey.</h2>
+
+    <div class="system-steps">
+      <div class="sys-step reveal">
+        <div class="sys-num">1</div>
+        <div class="sys-title">Pre-Arrival</div>
+        <div class="sys-desc">Own the guest's attention before they search anywhere else</div>
+      </div>
+      <div class="sys-step reveal">
+        <div class="sys-num">2</div>
+        <div class="sys-title">Guest Messaging</div>
+        <div class="sys-desc">Capture intent and guide every decision through your concierge</div>
+      </div>
+      <div class="sys-step reveal">
+        <div class="sys-num">3</div>
+        <div class="sys-title">Local Guide</div>
+        <div class="sys-desc">Convert curiosity into bookings through curated experiences</div>
+      </div>
+      <div class="sys-step reveal">
+        <div class="sys-num">4</div>
+        <div class="sys-title">Partner Layer</div>
+        <div class="sys-desc">Monetise your local ecosystem — revenue stays in your network</div>
+      </div>
+    </div>
+
+    <div class="closing-line reveal">
+      Competitors optimise replies. <em>We capture guest intent before the search even starts.</em>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact">
+  <div class="container" style="position:relative;z-index:1;text-align:center">
+    <div class="section-label reveal">Get Started</div>
+    <h2 class="cta-title reveal">The guest journey starts<br>before they <em>arrive</em></h2>
+    <p class="cta-sub reveal">Setup takes 48 hours. No long contracts. Cancel anytime.</p>
+    <div class="reveal">
+      <button class="btn-primary" style="padding:18px 52px;font-size:17px" onclick="openDemoModal()">Book a Demo Call</button>
+    </div>
+    <p class="cta-note reveal">Or email <a href="mailto:hello@theresidenceconcierge.com" style="color:var(--gold);text-decoration:none">hello@theresidenceconcierge.com</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">
+        <span>WhatsApp Concierge Platform</span>
+        The Residence Concierge
+      </div>
+      <p class="footer-desc">Your hotel's revenue-generating concierge. 24/7 WhatsApp guest service, automated bookings, commission tracking — all in one platform.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Platform</div>
+      <ul class="footer-links">
+        <li><a href="/#before-after">Our Impact</a></li>
+        <li><a href="/our-solution/">Our Solution</a></li>
+        <li><a href="/why-us/">Our Philosophy</a></li>
+        <li><a href="/platform/">The Toolkit</a></li>
+        <li><a href="/platform/#partnership">Partnership</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="mailto:hello@theresidenceconcierge.com">Email Us</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms of Service</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@theresidenceconcierge.com">hello@theresidenceconcierge.com</a></li>
+        <li><a href="#">129 Georgiou A, Germasogeia</a></li>
+        <li><a href="#">Limassol 4048, Cyprus</a></li>
+        <li><a href="#">WhatsApp Business API Partner</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 The Residence Concierge. All rights reserved. Registered in Cyprus.</div>
+    <div class="footer-legal">
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="mailto:hello@theresidenceconcierge.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a class="wa-float" href="https://wa.me/14155238886?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20The%20Residence%20Concierge%20platform" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.528 5.845L.057 23.571l5.867-1.536A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.823 9.823 0 01-5.008-1.374l-.359-.213-3.48.912.928-3.391-.234-.374A9.817 9.817 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+  <span>Chat with us</span>
+</a>
+
+<!-- DEMO MODAL -->
+<div id="demoModal">
+  <div class="dm-box">
+    <div class="dm-header" style="position:relative">
+      <div class="dm-steps">
+        <div class="dm-step-circle" id="si1c" style="background:#C9A84C;color:#1C3D2E">1</div>
+        <div class="dm-step-line"></div>
+        <div class="dm-step-circle" id="si2c" style="background:#F3F4F6;color:#9CA3AF">2</div>
+      </div>
+      <div class="dm-title">Book a Live Demo</div>
+      <div class="dm-sub">A 30-minute walkthrough of the full platform</div>
+      <button class="dm-close" onclick="closeDemoModal()">×</button>
+    </div>
+    <div class="dm-body">
+      <div id="step1">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px">
+          <div>
+            <label class="dm-field-label">Name *</label>
+            <input id="demoName" type="text" placeholder="" class="dm-input">
+          </div>
+          <div>
+            <label class="dm-field-label">Hotel / Property *</label>
+            <input id="demoHotel" type="text" placeholder="" class="dm-input">
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:9px">
+          <div>
+            <label class="dm-field-label">Business email *</label>
+            <input id="demoEmail" type="email" placeholder="" class="dm-input">
+          </div>
+          <div>
+            <label class="dm-field-label">Phone (optional)</label>
+            <input id="demoPhone" type="tel" placeholder="" class="dm-input">
+          </div>
+        </div>
+        <div style="margin-bottom:16px">
+          <label class="dm-field-label">Country</label>
+          <select id="demoCountry" class="dm-input" style="appearance:none">
+            <option value="">Select country</option>
+            <option>Cyprus</option><option>Greece</option><option>United Kingdom</option>
+            <option>UAE</option><option>Spain</option><option>Italy</option>
+            <option>France</option><option>Germany</option><option>Portugal</option>
+            <option>Malta</option><option>Croatia</option><option>Other</option>
+          </select>
+        </div>
+        <div style="margin-bottom:14px">
+          <span class="dm-label">Property size</span>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <label class="dm-pill"><input type="radio" name="size" value="small"> Under 20</label>
+            <label class="dm-pill"><input type="radio" name="size" value="medium"> 20–50 rooms</label>
+            <label class="dm-pill"><input type="radio" name="size" value="large"> 50–150 rooms</label>
+            <label class="dm-pill"><input type="radio" name="size" value="enterprise"> 150+ / multi</label>
+          </div>
+        </div>
+        <div style="margin-bottom:18px">
+          <span class="dm-label">Accommodation type</span>
+          <div style="display:flex;flex-wrap:wrap;gap:7px">
+            <label class="dm-pill"><input type="radio" name="acctype" value="hotel"> Hotel</label>
+            <label class="dm-pill"><input type="radio" name="acctype" value="vacation_rental"> Vacation Rental</label>
+            <label class="dm-pill"><input type="radio" name="acctype" value="aparthotel"> Aparthotel</label>
+            <label class="dm-pill"><input type="radio" name="acctype" value="resort"> Resort</label>
+            <label class="dm-pill"><input type="radio" name="acctype" value="boutique"> Boutique</label>
+            <label class="dm-pill"><input type="radio" name="acctype" value="other"> Other</label>
+          </div>
+        </div>
+        <label style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;cursor:pointer">
+          <input type="checkbox" id="demoMarketing" style="margin-top:2px;width:15px;height:15px;accent-color:#1C3D2E;flex-shrink:0">
+          <span style="font-size:12px;color:#6e6a60;line-height:1.5">I'd like to receive updates and news from The Residence Concierge. You can opt out at any time.</span>
+        </label>
+        <p style="font-size:11px;color:#9CA3AF;line-height:1.6;margin-bottom:12px">
+          By submitting, I accept The Residence Concierge's <a href="/privacy-policy.html" style="color:#A8832A;text-decoration:none">Privacy Policy</a>.
+        </p>
+        <div id="demoErr" style="display:none;background:#FEF2F2;border:1px solid #FCA5A5;border-radius:8px;padding:9px 13px;font-size:13px;color:#991B1B;margin-bottom:10px"></div>
+        <button onclick="goStep2()" style="width:100%;padding:14px;background:#1C3D2E;color:white;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif">
+          Pick a time →
+        </button>
+        <div style="text-align:center;margin-top:9px;font-size:12px;color:#9CA3AF">
+          Or email <a href="mailto:hello@theresidenceconcierge.com" style="color:#A8832A">hello@theresidenceconcierge.com</a>
+        </div>
+      </div>
+      <div id="step2" style="display:none;flex:1;overflow-y:auto;min-height:0">
+        <div id="calEmbed" style="min-height:700px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)
+});
+
+// Mobile menu
+function toggleMenu(){
+  const menu = document.getElementById('mobileMenu');
+  const close = document.getElementById('mobileClose');
+  menu.classList.toggle('open');
+  if(close) close.style.display = menu.classList.contains('open') ? 'block' : 'none';
+}
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})
+},{threshold:0.08});
+revealEls.forEach(el=>obs.observe(el));
+
+// Filter pills
+document.getElementById('filters').addEventListener('click', function(e){
+  const pill = e.target.closest('.fpill');
+  if(!pill) return;
+  document.querySelectorAll('.fpill').forEach(p=>p.classList.remove('active'));
+  pill.classList.add('active');
+  const cat = pill.dataset.cat;
+  document.querySelectorAll('.card').forEach(card=>{
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+});
+
+// Demo modal
+var _calReady = false;
+var _calLoadedAt = 0;
+var CAL_TTL = 10 * 60 * 1000;
+var CAL_URL = 'https://calendly.com/theresidenceconcierge/30min?hide_landing_page_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=1a1a18&primary_color=1C3D2E';
+
+function _loadCalendlyIframe(){
+  if(!window.Calendly) return;
+  _calReady = true;
+  _calLoadedAt = Date.now();
+  Calendly.initInlineWidget({
+    url: CAL_URL,
+    parentElement: document.getElementById('calEmbed'),
+    prefill: {},
+    resize: true
+  });
+}
+
+function openDemoModal(){
+  document.getElementById('demoModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  if(!_calReady || (Date.now() - _calLoadedAt) > CAL_TTL){
+    document.getElementById('calEmbed').innerHTML = '';
+    _calReady = false;
+    _loadCalendlyIframe();
+  }
+}
+
+function closeDemoModal(){
+  document.getElementById('demoModal').style.display = 'none';
+  document.body.style.overflow = '';
+  document.getElementById('step1').style.display = 'block';
+  document.getElementById('step2').style.display = 'none';
+  document.getElementById('si2c').style.background = '#F3F4F6';
+  document.getElementById('si2c').style.color = '#9CA3AF';
+}
+
+function goStep2(){
+  var name  = document.getElementById('demoName').value.trim();
+  var hotel = document.getElementById('demoHotel').value.trim();
+  var email = document.getElementById('demoEmail').value.trim();
+  var err   = document.getElementById('demoErr');
+  err.style.display = 'none';
+  if(!name || !hotel || !email){
+    err.textContent = 'Please fill in your name, hotel and email.';
+    err.style.display = 'block';
+    return;
+  }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    err.textContent = 'Please enter a valid email address.';
+    err.style.display = 'block';
+    return;
+  }
+  document.getElementById('step1').style.display = 'none';
+  document.getElementById('step2').style.display = 'block';
+  document.getElementById('si2c').style.background = '#A8832A';
+  document.getElementById('si2c').style.color = 'white';
+  if(!window.Calendly || !_calReady){
+    document.getElementById('calEmbed').innerHTML = '<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:400px;gap:16px"><p style="font-size:15px;color:#3d3d38">Click below to open the calendar</p><a href="https://calendly.com/theresidenceconcierge/30min" target="_blank" style="padding:14px 32px;background:#1C3D2E;color:white;border-radius:10px;font-size:15px;font-weight:600;text-decoration:none">Open calendar →</a></div>';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('demoModal').addEventListener('click', function(e){ if(e.target===this) closeDemoModal(); });
+  if(window.Calendly){
+    _loadCalendlyIframe();
+  } else {
+    var s = document.querySelector('script[src*="calendly"]');
+    if(s) s.addEventListener('load', _loadCalendlyIframe);
+  }
+});
+
+document.addEventListener('keydown', function(e){
+  if(e.key==='Escape') closeDemoModal();
+});
+</script>
+
+</body>
+</html>
