@@ -267,9 +267,10 @@ footer{background:var(--dark);border-top:1px solid var(--border2);padding:56px 4
   /* Stack visual above text on mobile for showcase sections */
   .showcase-text { order: 1 !important }
   .showcase-visual { order: 2 !important }
-  /* Dashboard: hide conversation on mobile, show only profile + summary */
-  .dashboard-convo { display: none !important }
-  .dashboard-grid { grid-template-columns: 1fr 220px !important }
+  /* Dashboard: on mobile, show conversation (the proof) + profile, hide stay summary */
+  .dashboard-convo { display: flex !important }
+  .dashboard-summary { display: none !important }
+  .dashboard-grid { grid-template-columns: 200px 1fr !important }
   /* Reduce padding on showcase sections */
   /* section padding handled per-section */
   #before-after [style*="border-radius:2px 0 0 2px"],
@@ -726,7 +727,7 @@ body        { font-size: 19px !important; }
           </div>
 
           <!-- RIGHT: Stay summary -->
-          <div style="border-left:1px solid rgba(255,255,255,0.06);padding:14px;background:#0d1a13">
+          <div class="dashboard-summary" style="border-left:1px solid rgba(255,255,255,0.06);padding:14px;background:#0d1a13">
             <div style="font-size:10px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,0.25);margin-bottom:12px;font-family:'DM Sans',sans-serif">STAY SUMMARY</div>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
               <div style="background:rgba(255,255,255,0.04);border-radius:6px;padding:10px">
