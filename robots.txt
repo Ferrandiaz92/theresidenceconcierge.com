@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.theresidenceconcierge.com/sitemap.xml
+Sitemap: https://theresidenceconcierge.com/sitemap.xml
